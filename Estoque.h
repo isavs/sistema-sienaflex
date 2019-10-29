@@ -2,9 +2,9 @@
 #include <iostream>
 using namespace std;
 
-class Storage
+class Estoque
 {
 public:
-    Storage();
-    ~Storage();
+    Estoque();
+    ~Estoque();
 };
