@@ -2,9 +2,9 @@
 
 
 class Mercadoria {
-private:
+protected:
     int id;
-    char *nome,
+    const char *nome,
         *fabricante,
         *cor,
         *marca;
@@ -15,4 +15,5 @@ private:
 public:
     Mercadoria();
     ~Mercadoria();
+    void cadastrarColchao(const char* nome){}
 };

@@ -6,8 +6,8 @@ class Estoque;
 class Colchao: public Mercadoria
 {
 private:
-
 public:
-  Colchao();
+  Colchao(const char *nome);
   ~Colchao();
+  const char* getNome(){ return nome; }
 };

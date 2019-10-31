@@ -29,4 +29,10 @@ public:
             listaColchoes.push_back(colchao);
         }
     }
+
+    void listar(){
+        for (auto it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
+            printf ("%s\n", (*it)->getNome());
+        }
+    }
 };
