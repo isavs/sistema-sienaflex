@@ -3,7 +3,7 @@
 using namespace std;
 #include <list>
 #include <map>
-
+#include <stdio.h>
 #include "Mercadoria.h"
 #include "Colchao.h"
 
@@ -11,7 +11,7 @@ class Estoque
 {
 private:
     //multimap<list<Mercadoria*>> listaMercadorias;
-    list<list<Mercadoria*>> listaMercadorias;
+    list< list<Mercadoria*> > listaMercadorias;
     static list<Colchao*> listaColchoes;
     //list<Base*> listaBases;
     //list<Cabeceira*> listaCabeceiras;
@@ -25,14 +25,15 @@ public:
     ~Estoque();
 
     static void adicionarColchao(Colchao* colchao){
-        if (colchao != nullptr) {
+        if (colchao != NULL) {
             listaColchoes.push_back(colchao);
         }
     }
 
     void listar(){
-        for (auto it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
-            printf ("%s\n", (*it)->getNome());
-        }
+        //iterator it;
+        //for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
+           // printf ("%s\n", (*it)->getNome());
+        //}
     }
 };
