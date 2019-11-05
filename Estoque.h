@@ -27,14 +27,11 @@ public:
     void adicionarColchao(Colchao* colchao){
         if (colchao != NULL) {
             listaColchoes.push_back(colchao);
-            //printf("aqui\n");
-        printf ("%s\n", colchao->getNome());
         }
     }
 
     void listar(){
         std::list<Colchao*>::iterator it;
-        //printf("oi\n");
         for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
            printf ("%s\n", (*it)->getNome());
         }
