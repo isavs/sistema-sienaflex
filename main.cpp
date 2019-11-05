@@ -1,9 +1,9 @@
 /**
- * 
+ *
  * Melissa:
- * cd C:\Users\melis\OneDrive\Documentos\ProjetoFinalTDP\sistema-sienaflex> 
- * g++ -o tnt main.cpp Colchao.cpp Estoque.cpp Mercadoria.cpp 
- * 
+ * cd C:\Users\melis\OneDrive\Documentos\ProjetoFinalTDP\sistema-sienaflex>
+ * g++ -o tnt main.cpp Colchao.cpp Estoque.cpp Mercadoria.cpp
+ *
  * */
 
 #include <stdio.h>
@@ -12,11 +12,11 @@
 
 int main()
 {
-    printf("oi/n");
+    //printf("oi/n");
     Colchao *colchao = new Colchao("joao");
 
-    //Estoque *estoque;
-    //estoque->listar();
+    Estoque estoque;
+    estoque.listar();
 
     return 0;
 }

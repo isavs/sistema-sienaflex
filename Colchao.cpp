@@ -4,7 +4,8 @@
 Colchao::Colchao(const char *nome)
 {
     this->nome = nome;
-    Estoque::adicionarColchao(this);
+    Estoque estoque;
+    estoque.adicionarColchao(this);
 }
 
 Colchao::~Colchao()

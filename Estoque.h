@@ -12,7 +12,7 @@ class Estoque
 private:
     //multimap<list<Mercadoria*>> listaMercadorias;
     list< list<Mercadoria*> > listaMercadorias;
-    static list<Colchao*> listaColchoes;
+    list<Colchao*> listaColchoes;
     //list<Base*> listaBases;
     //list<Cabeceira*> listaCabeceiras;
     //list<Sofa*> listaSofas;
@@ -24,16 +24,19 @@ public:
     Estoque();
     ~Estoque();
 
-    static void adicionarColchao(Colchao* colchao){
+    void adicionarColchao(Colchao* colchao){
         if (colchao != NULL) {
             listaColchoes.push_back(colchao);
+            //printf("aqui\n");
+        printf ("%s\n", colchao->getNome());
         }
     }
 
     void listar(){
-        //iterator it;
-        //for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
-           // printf ("%s\n", (*it)->getNome());
-        //}
+        std::list<Colchao*>::iterator it;
+        //printf("oi\n");
+        for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
+           printf ("%s\n", (*it)->getNome());
+        }
     }
 };
