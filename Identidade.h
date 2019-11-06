@@ -10,17 +10,15 @@ class Identidade
 {
 private:
     int id;
-    char *nome;
-
-    Data data;
+    char* nome;
 
 public:
     Identidade();
+    Identidade(int id, char* nome);
     ~Identidade();
 
     void setId(int id);
-    int getId();
+    const int getId();
     void setNome(char* nome);
     const char* getNome();
-    void setDataCadastro(int dia, int mes, int ano);
 };
