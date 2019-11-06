@@ -4,7 +4,7 @@
 class Endereco
 {
 private:
-    long int cep;
+    char* cep;
     char* rua;
     int numero;
     char* bairro;
@@ -15,13 +15,13 @@ private:
 
 public:
     Endereco();
-    Endereco(long int cep, char* rua, int numero, char* bairro, char* cidade, char* estado, char* pais, char* complemento);
+    Endereco(char* cep, char* rua, int numero, char* bairro, char* cidade, char* estado, char* pais, char* complemento);
     ~Endereco();
+    const char* getCep();
     const char* getRua();
+    const int getNumero();
     const char* getBairro();
     const char* getCidade();
     const char* getEstado();
     const char* getPais();
-    const int getNumero();
-    const long int getCep();
 };

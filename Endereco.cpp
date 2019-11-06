@@ -2,7 +2,7 @@
 
 Endereco::Endereco()
 {
-    cep = 0;
+    cep = NULL;
     rua = NULL;
     numero = 0;
     bairro = NULL;
@@ -11,9 +11,9 @@ Endereco::Endereco()
     pais = NULL;
 }
 
-Endereco::Endereco(long int cep, char* rua, int numero, char* bairro, char* cidade, char* estado, char* pais, char* complemento)
+Endereco::Endereco(char* cep, char* rua, int numero, char* bairro, char* cidade, char* estado, char* pais, char* complemento)
 {
-    this->cep = cep;
+    strcpy(this->cep, cep);
     strcpy(this->rua, rua);
     this->numero = numero;
     strcpy(this->bairro, bairro);
@@ -25,10 +25,16 @@ Endereco::Endereco(long int cep, char* rua, int numero, char* bairro, char* cida
 
 Endereco::~Endereco()
 {
-
+    cep = NULL;
+    rua = NULL;
+    numero = 0;
+    bairro = NULL;
+    cidade = NULL;
+    estado = NULL;
+    pais = NULL;
 }
 
-const long int Endereco::getCep()
+const char* Endereco::getCep()
 {
     return cep;
 }
