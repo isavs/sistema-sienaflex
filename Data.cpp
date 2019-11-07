@@ -25,7 +25,7 @@ void Data::setData(int dia, int mes, int ano)
         {
             if (dia < 29)
             {
-                setCheckedData(dia, mes, ano);
+                setDataVerificada(dia, mes, ano);
             }
             else
             {
@@ -38,7 +38,7 @@ void Data::setData(int dia, int mes, int ano)
             {
                 if (dia < 32)
                 {
-                    setCheckedData(dia, mes, ano);
+                    setDataVerificada(dia, mes, ano);
                 }
                 else {
                     //funcoes de controle
@@ -48,7 +48,7 @@ void Data::setData(int dia, int mes, int ano)
             {
                 if (dia < 31)
                 {
-                    setCheckedData(dia, mes, ano);
+                    setDataVerificada(dia, mes, ano);
                 }
                 else {
                     //funcoes de controle
@@ -61,7 +61,7 @@ void Data::setData(int dia, int mes, int ano)
             {
                 if (dia < 32)
                 {
-                    setCheckedData(dia, mes, ano);
+                    setDataVerificada(dia, mes, ano);
                 }
                 else {
                     //funcoes de controle
@@ -72,7 +72,7 @@ void Data::setData(int dia, int mes, int ano)
     }
 }
 
-void Data::setCheckedData(int dia, int mes, int ano)
+void Data::setDataVerificada(int dia, int mes, int ano)
 {
     this->dia = dia;
     this->mes = mes;

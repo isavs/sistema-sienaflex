@@ -1,12 +1,12 @@
 #include "Pessoa.h"
 
 Pessoa::Pessoa():
-endereco(0, "", 0, "", "", "", "", "")
+endereco()
 {
 
 }
 
-Pessoa::Pessoa(char* nome, Endereco endereco)
+Pessoa::Pessoa(char* nome, char* cpf, char* telefone, Endereco endereco)
 {
     this->endereco = endereco;
 }

@@ -11,11 +11,11 @@ protected:
     char* nome;
     char* cpf;
     char* telefone;
+    //char* email;
     Endereco endereco;
 
 public:
     Pessoa();
-    Pessoa(char* nome, char* cpf, char* telefone);
-    Pessoa(char* nome, Endereco endereco);
+    Pessoa(char* nome, char* cpf, char* telefone, Endereco endereco);
     ~Pessoa();
 };

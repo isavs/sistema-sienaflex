@@ -1,6 +1,7 @@
 #include "Funcionario.h"
 
-Funcionario::Funcionario()
+Funcionario::Funcionario():
+Pessoa()
 {
     salario = 0.0;
 }
