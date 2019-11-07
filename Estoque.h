@@ -11,13 +11,13 @@ class Estoque
 private:
     //multimap<list<Mercadoria*>> listaMercadorias;
     list< list<Mercadoria*> > listaMercadorias;
-    list<Colchao*> listaColchoes;
+    //list<Colchao*> listaColchoes;
 
 
 public:
     Estoque();
     ~Estoque();
-
+    /*
     void adicionarColchao(Colchao* colchao){
         if (colchao != NULL) {
             listaColchoes.push_back(colchao);
@@ -29,5 +29,5 @@ public:
         for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
            printf ("%s\n", (*it)->getNome());
         }
-    }
+    }*/
 };

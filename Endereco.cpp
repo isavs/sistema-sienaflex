@@ -2,13 +2,7 @@
 
 Endereco::Endereco()
 {
-    cep = NULL;
-    rua = NULL;
-    numero = 0;
-    bairro = NULL;
-    cidade = NULL;
-    estado = NULL;
-    pais = NULL;
+
 }
 
 Endereco::Endereco(char* cep, char* rua, int numero, char* bairro, char* cidade, char* estado, char* pais, char* complemento)
@@ -25,13 +19,7 @@ Endereco::Endereco(char* cep, char* rua, int numero, char* bairro, char* cidade,
 
 Endereco::~Endereco()
 {
-    cep = NULL;
-    rua = NULL;
-    numero = 0;
-    bairro = NULL;
-    cidade = NULL;
-    estado = NULL;
-    pais = NULL;
+
 }
 
 const char* Endereco::getCep()

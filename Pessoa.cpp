@@ -3,7 +3,15 @@
 Pessoa::Pessoa():
 endereco()
 {
+    strcpy(nome, "");
+    strcpy(cpf, "");
+    strcpy(telefone, "");
+}
 
+/* Fiz pra testes */
+Pessoa::Pessoa(char* nome)
+{
+    strcpy(this->nome, nome);
 }
 
 Pessoa::Pessoa(char* nome, char* cpf, char* telefone, Endereco endereco)

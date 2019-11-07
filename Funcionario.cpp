@@ -7,6 +7,13 @@ Funcionario::Funcionario()
     salario = 0.0;
 }
 
+/* Fiz pra testes */
+Funcionario::Funcionario(int id, char* nome)
+: Pessoa(nome)
+{
+    this->id = id;
+}
+
 Funcionario::Funcionario(int id, char* nome, char* cpf, char* telefone, Endereco endereco, double salario)
 : Pessoa(nome, cpf, telefone, endereco)
 {

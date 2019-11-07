@@ -9,6 +9,7 @@ private:
 
 public:
     Funcionario();
+    Funcionario(int id, char* nome);
     Funcionario(int id, char* nome, char* cpf, char* telefone, Endereco endereco, double salario);
     ~Funcionario();
     const int getId();

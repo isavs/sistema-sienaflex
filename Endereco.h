@@ -4,14 +4,14 @@
 class Endereco
 {
 private:
-    char* cep;
-    char* rua;
+    char cep[300];
+    char rua[300];
     int numero;
-    char* bairro;
-    char* cidade;
-    char* estado;
-    char* pais;
-    char* complemento;
+    char bairro[300];
+    char cidade[300];
+    char estado[300];
+    char pais[300];
+    char complemento[300];
 
 public:
     Endereco();

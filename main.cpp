@@ -9,10 +9,11 @@
 #include <stdio.h>
 #include <iostream>
 #include "Estoque.h"
+#include "Testes.h"
 
 int main()
 {
-    Colchao *colchao = new Colchao("joao");
+    Testes teste;
 
     return 0;
 }

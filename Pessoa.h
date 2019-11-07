@@ -6,14 +6,15 @@ class Pessoa
 {
 protected:
     //Identidade id;
-    char* nome;
-    char* cpf;
-    char* telefone;
+    char nome[300];
+    char cpf[300];
+    char telefone[300];
     //char* email;
     Endereco endereco;
 
 public:
     Pessoa();
+    Pessoa(char* nome);
     Pessoa(char* nome, char* cpf, char* telefone, Endereco endereco);
     ~Pessoa();
     const char* getNome();
