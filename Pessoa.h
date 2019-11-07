@@ -1,7 +1,5 @@
 #pragma once
 #include <iostream>
-
-#include "Identidade.h"
 #include "Endereco.h"
 
 class Pessoa
@@ -18,4 +16,7 @@ public:
     Pessoa();
     Pessoa(char* nome, char* cpf, char* telefone, Endereco endereco);
     ~Pessoa();
+    const char* getNome();
+    const char* getCpf();
+    const char* getTelefone();
 };

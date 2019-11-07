@@ -19,35 +19,26 @@ Data::~Data()
 
 void Data::setData(int dia, int mes, int ano)
 {
-    if (dia > 0)
-    {
-        if (mes == 2)
-        {
-            if (dia < 29)
-            {
+    if (dia > 0){
+        if (mes == 2){
+            if (dia < 29){
                 setDataVerificada(dia, mes, ano);
             }
-            else
-            {
+            else {
                 /* code */
             }
         }
-        else if (mes < 8)
-        {
-            if (mes % 2 == 1)
-            {
-                if (dia < 32)
-                {
+        else if (mes < 8){
+            if (mes % 2 == 1){
+                if (dia < 32){
                     setDataVerificada(dia, mes, ano);
                 }
                 else {
                     //funcoes de controle
                 }
             }
-            else
-            {
-                if (dia < 31)
-                {
+            else {
+                if (dia < 31){
                     setDataVerificada(dia, mes, ano);
                 }
                 else {
@@ -55,12 +46,9 @@ void Data::setData(int dia, int mes, int ano)
                 }
             }
         }
-        else if (mes >= 8)
-        {
-            if (mes % 2 == 0)
-            {
-                if (dia < 32)
-                {
+        else if (mes >= 8){
+            if (mes % 2 == 0){
+                if (dia < 32){
                     setDataVerificada(dia, mes, ano);
                 }
                 else {
@@ -79,17 +67,17 @@ void Data::setDataVerificada(int dia, int mes, int ano)
     this->ano = ano;
 }
 
-int Data::getDia()
+const int Data::getDia()
 {
     return dia;
 }
 
-int Data::getMes()
+const int Data::getMes()
 {
     return mes;
 }
 
-int Data::getAno()
+const int Data::getAno()
 {
     return ano;
 }
