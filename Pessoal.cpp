@@ -1,23 +1,23 @@
-#include "Membros.h"
+#include "Pessoal.h"
 
-Membros::Membros()
+Pessoal::Pessoal()
 {
 
 }
 
-Membros::~Membros()
+Pessoal::~Pessoal()
 {
-    // TEM QUE LIBERAR A LIST?
+    // TEM QUE LIBERAR A LIST? SE SIM, COMO? DESCOBRIR.
 }
 
-void Membros::adicionarFuncionario(Funcionario* funcionario)
+void Pessoal::adicionarFuncionario(Funcionario* funcionario)
 {
     if (funcionario != NULL){
         funcionarios.push_back(funcionario);
     }
 }
 
-void Membros::removerFuncionario(const int id)
+void Pessoal::removerFuncionario(const int id)
 {
     list<Funcionario*>::iterator it;
     for (it = funcionarios.begin(); it != funcionarios.end(); ++it){
@@ -29,7 +29,7 @@ void Membros::removerFuncionario(const int id)
     cout << "\n\tErro: funcionário não encontrado para remoção." << endl;
 }
 
-Funcionario* Membros::pesquisarFuncionario(const int id)
+Funcionario* Pessoal::pesquisarFuncionario(const int id)
 {
     list<Funcionario*>::iterator it;
     for (it = funcionarios.begin(); it != funcionarios.end(); ++it){
@@ -38,13 +38,15 @@ Funcionario* Membros::pesquisarFuncionario(const int id)
         }
     }
     cout << "\n\tErro: funcionário não encontrado." << endl;
+    return NULL;
 }
 
-void Membros::listarFuncionarios()
+void Pessoal::listarFuncionarios()
 {
     list<Funcionario*>::iterator it;
     for (it = funcionarios.begin(); it != funcionarios.end(); ++it){
-        cout << "\n\tNome: " << (*it)->getNome() << endl
-        << "\tId: " << (*it)->getId() << endl << endl; // checar se 2 endls pulas 2 linhas
+        cout << "\n\tColaborador " << (*it)->getNome()
+        << " com id " << (*it)->getId() << endl;
     }
+    cout << endl;
 }

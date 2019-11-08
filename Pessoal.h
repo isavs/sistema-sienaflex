@@ -7,15 +7,15 @@
 using namespace std;
 #include "Funcionario.h"
 
-class Membros
+class Pessoal
 {
 private:
     int id;
     list<Funcionario*> funcionarios;
 
 public:
-    Membros();
-    ~Membros();
+    Pessoal();
+    ~Pessoal();
     void adicionarFuncionario(Funcionario* funcionario);
     void removerFuncionario(const int id);
     Funcionario* pesquisarFuncionario(const int id);
