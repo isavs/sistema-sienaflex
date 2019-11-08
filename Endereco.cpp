@@ -2,7 +2,14 @@
 
 Endereco::Endereco()
 {
-
+    strcpy(this->cep, "");
+    strcpy(this->rua, "");
+    this->numero = 0;
+    strcpy(this->bairro, "");
+    strcpy(this->cidade, "");
+    strcpy(this->estado, "");
+    strcpy(this->pais, "");
+    strcpy(this->complemento, "");
 }
 
 Endereco::Endereco(char* cep, char* rua, int numero, char* bairro, char* cidade, char* estado, char* pais, char* complemento)

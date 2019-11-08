@@ -37,7 +37,6 @@ Funcionario* Pessoal::pesquisarFuncionario(const int id)
             return *it;
         }
     }
-    cout << "\n\tErro: funcionário não encontrado." << endl;
     return NULL;
 }
 

@@ -21,7 +21,6 @@ void GerenciadorDePessoal::cadastrarFuncionario()
     cin >> nome;
 
     Funcionario* funcionario = new Funcionario(id, nome);
-    //printf ("\noi\n");
     listaFuncionarios.adicionarFuncionario(funcionario);
 }
 
@@ -47,6 +46,8 @@ void GerenciadorDePessoal::pesquisarFuncionario()
     if (funcionario != NULL){
         cout << "\tColaborador " << funcionario->getNome()
              << " encontrado." << endl;
+    } else {
+        cout << "\n\tErro: funcionário não encontrado." << endl;
     }
 }
 

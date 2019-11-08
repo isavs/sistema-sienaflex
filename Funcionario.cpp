@@ -7,7 +7,7 @@ Funcionario::Funcionario()
     salario = 0.0;
 }
 
-/* Fiz pra testes */
+/* Para testes */
 Funcionario::Funcionario(int id, char* nome)
 : Pessoa(nome)
 {

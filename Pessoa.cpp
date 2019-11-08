@@ -8,7 +8,7 @@ endereco()
     strcpy(telefone, "");
 }
 
-/* Fiz pra testes */
+/* Para testes */
 Pessoa::Pessoa(char* nome)
 {
     strcpy(this->nome, nome);

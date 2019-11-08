@@ -5,11 +5,9 @@
 class Pessoa
 {
 protected:
-    //Identidade id;
     char nome[300];
     char cpf[300];
     char telefone[300];
-    //char* email;
     Endereco endereco;
 
 public:

@@ -5,7 +5,7 @@
  * g++ -o tnt main.cpp Colchao.cpp Estoque.cpp Mercadoria.cpp
  *
  * Isa:
- * g++ -o projeto main.cpp Data.cpp Endereco.cpp Estoque.cpp Funcionario.cpp Pessoal.cpp Mercadoria.cpp Pessoa.cpp Testes.cpp
+ * g++ -o projeto main.cpp Data.cpp Endereco.cpp Estoque.cpp Funcionario.cpp Pessoal.cpp Mercadoria.cpp Pessoa.cpp GerenciadorDePessoal.cpp Menu.cpp
  *
  * */
 
