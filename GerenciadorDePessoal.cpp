@@ -1,5 +1,6 @@
 #include "GerenciadorDePessoal.h"
 
+
 int GerenciadorDePessoal::id = 0;
 
 GerenciadorDePessoal::GerenciadorDePessoal()
@@ -16,10 +17,11 @@ void GerenciadorDePessoal::cadastrarFuncionario()
 {
     id++;
     char nome[300];
-
-    cout << "\n\tDados do funcionário:\n\tNome completo: ";
-    cin >> nome;
-
+    
+    cout << endl << "\tDados do funcionário:"<< endl <<"\tNome completo: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    fgets(nome, 300, stdin);
     Funcionario* funcionario = new Funcionario(id, nome);
     listaFuncionarios.adicionarFuncionario(funcionario);
 }
