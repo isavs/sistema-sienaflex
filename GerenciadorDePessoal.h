@@ -1,4 +1,6 @@
 #pragma once
+#include <stdio.h>
+#include <stdio_ext.h>
 #include <iostream>
 using namespace std;
 #include "Pessoal.h"
@@ -7,12 +9,15 @@ using namespace std;
 class GerenciadorDePessoal
 {
 private:
-    static int id;
+    static GerenciadorDePessoal* gerenciadorDePessoal;
     Pessoal listaFuncionarios;
 
-public:
+private:
     GerenciadorDePessoal();
     ~GerenciadorDePessoal();
+
+public:
+    static GerenciadorDePessoal* getGerenciadorDePessoal();
     void cadastrarFuncionario();
     void desligarFuncionario();
     void pesquisarFuncionario();
