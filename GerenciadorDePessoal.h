@@ -7,7 +7,7 @@ using namespace std;
 class GerenciadorDePessoal
 {
 private:
-    static int id;
+    //static int id;
     Pessoal listaFuncionarios;
 
 public:
