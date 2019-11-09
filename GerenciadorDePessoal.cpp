@@ -1,6 +1,11 @@
 #include "GerenciadorDePessoal.h"
 
+<<<<<<< HEAD
 GerenciadorDePessoal* GerenciadorDePessoal::gerenciadorDePessoal = 0;
+=======
+
+int GerenciadorDePessoal::id = 0;
+>>>>>>> 37473289a53946ac143c5274d3d769b5ad79a4eb
 
 GerenciadorDePessoal::GerenciadorDePessoal()
 {
@@ -23,6 +28,7 @@ GerenciadorDePessoal* GerenciadorDePessoal::getGerenciadorDePessoal()
 void GerenciadorDePessoal::cadastrarFuncionario()
 {
     char nome[300];
+<<<<<<< HEAD
 
     cout << endl << "\tDados do funcionário:\n\tNome completo: ";
     __fpurge(stdin);
@@ -30,6 +36,14 @@ void GerenciadorDePessoal::cadastrarFuncionario()
     fgets(nome, 300, stdin);
 
     Funcionario* funcionario = new Funcionario(nome);
+=======
+    
+    cout << endl << "\tDados do funcionário:"<< endl <<"\tNome completo: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    fgets(nome, 300, stdin);
+    Funcionario* funcionario = new Funcionario(id, nome);
+>>>>>>> 37473289a53946ac143c5274d3d769b5ad79a4eb
     listaFuncionarios.adicionarFuncionario(funcionario);
 }
 
