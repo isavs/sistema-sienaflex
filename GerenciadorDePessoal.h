@@ -9,11 +9,7 @@ using namespace std;
 class GerenciadorDePessoal
 {
 private:
-<<<<<<< HEAD
-    //static int id;
-=======
     static GerenciadorDePessoal* gerenciadorDePessoal;
->>>>>>> 5c4609f3541e17cd3f64e56cd965140a7ecd0624
     Pessoal listaFuncionarios;
 
 private:
