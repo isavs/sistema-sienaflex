@@ -17,7 +17,7 @@ public:
     Pessoal();
     ~Pessoal();
     void adicionarFuncionario(Funcionario* funcionario);
-    void removerFuncionario(const int id);
-    Funcionario* pesquisarFuncionario(const int id);
+    void removerFuncionario(const string nome, const int id);
+    void pesquisarFuncionario(const string nome);
     void listarFuncionarios();
 };

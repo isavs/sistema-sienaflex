@@ -17,35 +17,48 @@ void Pessoal::adicionarFuncionario(Funcionario* funcionario)
     }
 }
 
-void Pessoal::removerFuncionario(const int id)
+void Pessoal::removerFuncionario(const string nome, const int id)
 {
     list<Funcionario*>::iterator it;
     for (it = funcionarios.begin(); it != funcionarios.end(); ++it){
         if ((*it)->getId() == id){
-            funcionarios.erase(it);
+            if ((*it)->getNome().compare(nome) == 0){
+                funcionarios.erase(it);
+            }
             return;
         }
     }
     cout << "\n\tErro: funcionário não encontrado para remoção." << endl;
 }
 
-Funcionario* Pessoal::pesquisarFuncionario(const int id)
+void Pessoal::pesquisarFuncionario(const string nome)
 {
+    bool flag = true;
     list<Funcionario*>::iterator it;
     for (it = funcionarios.begin(); it != funcionarios.end(); ++it){
-        if ((*it)->getId() == id){
-            return *it;
+        size_t nomeEncontrado = ((*it)->getNome()).find(nome);
+        if (nomeEncontrado != string::npos){
+            cout << "\tColaborador: " << (*it)->getNome()
+                 << " Id: " << (*it)->getId() << endl;
+            flag = false;
         }
     }
-    return NULL;
+    if (flag){
+        cout << "\tNenhum funcionário encontrado." << endl;
+    }
 }
 
 void Pessoal::listarFuncionarios()
 {
+    bool flag = true;
     list<Funcionario*>::iterator it;
     for (it = funcionarios.begin(); it != funcionarios.end(); ++it){
         cout << "\n\tColaborador " << (*it)->getNome()
-        << " com id " << (*it)->getId() << endl;
+        << " com id " << (*it)->getId();
+        flag = false;
+    }
+    if (flag){
+        cout << "\n\tLista de funcionários vazia.";
     }
     cout << endl;
 }
