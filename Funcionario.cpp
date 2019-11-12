@@ -1,23 +1,25 @@
 #include "Funcionario.h"
 
+int Funcionario::quantidadeFuncionarios = 0;
+
 Funcionario::Funcionario()
 : Pessoa()
 {
-    id = 0;
+    id = ++quantidadeFuncionarios;
     salario = 0.0;
 }
 
 /* Para testes */
-Funcionario::Funcionario(int id, char* nome)
+Funcionario::Funcionario(string nome)
 : Pessoa(nome)
 {
-    this->id = id;
+    id = ++quantidadeFuncionarios;
 }
 
-Funcionario::Funcionario(int id, char* nome, char* cpf, char* telefone, Endereco endereco, double salario)
+Funcionario::Funcionario(string nome, string cpf, string telefone, Endereco endereco, double salario)
 : Pessoa(nome, cpf, telefone, endereco)
 {
-    this->id = id;
+    id = ++quantidadeFuncionarios;
     this->salario = salario;
 }
 

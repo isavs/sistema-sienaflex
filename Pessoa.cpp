@@ -3,22 +3,22 @@
 Pessoa::Pessoa():
 endereco()
 {
-    strcpy(nome, "");
-    strcpy(cpf, "");
-    strcpy(telefone, "");
+    this->nome = "";
+    this->cpf = "";
+    this->telefone = "";
 }
 
 /* Para testes */
-Pessoa::Pessoa(char* nome)
+Pessoa::Pessoa(string nome)
 {
-    strcpy(this->nome, nome);
+    this->nome = nome;
 }
 
-Pessoa::Pessoa(char* nome, char* cpf, char* telefone, Endereco endereco)
+Pessoa::Pessoa(string nome, string cpf, string telefone, Endereco endereco)
 {
-    strcpy(this->nome, nome);
-    strcpy(this->cpf, cpf);
-    strcpy(this->telefone, telefone);
+    this->nome = nome;
+    this->cpf = cpf;
+    this->telefone = telefone;
     this->endereco = endereco;
 }
 
@@ -27,17 +27,17 @@ Pessoa::~Pessoa()
 
 }
 
-const char* Pessoa::getNome()
+const string Pessoa::getNome()
 {
     return nome;
 }
 
-const char* Pessoa::getCpf()
+const string Pessoa::getCpf()
 {
     return cpf;
 }
 
-const char* Pessoa::getTelefone()
+const string Pessoa::getTelefone()
 {
     return telefone;
 }

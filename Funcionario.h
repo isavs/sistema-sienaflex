@@ -4,13 +4,14 @@
 class Funcionario: public Pessoa
 {
 private:
+    static int quantidadeFuncionarios;
     int id;
     double salario;
 
 public:
     Funcionario();
-    Funcionario(int id, char* nome);
-    Funcionario(int id, char* nome, char* cpf, char* telefone, Endereco endereco, double salario);
+    Funcionario(string nome);
+    Funcionario(string nome, string cpf, string telefone, Endereco endereco, double salario);
     ~Funcionario();
     const int getId();
     const double getSalario();
