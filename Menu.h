@@ -6,7 +6,7 @@ using namespace std;
 class Menu
 {
 private:
-    GerenciadorDePessoal gerenciadorDePessoal;
+    GerenciadorDePessoal* gerenciadorDePessoal;
 
 public:
     Menu();

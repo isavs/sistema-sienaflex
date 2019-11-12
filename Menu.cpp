@@ -2,6 +2,7 @@
 
 Menu::Menu()
 {
+    gerenciadorDePessoal = GerenciadorDePessoal::getGerenciadorDePessoal();
     menuPessoal();
 }
 
@@ -25,23 +26,23 @@ void Menu::menuPessoal()
         {
             case 1:
             {
-                gerenciadorDePessoal.cadastrarFuncionario();
+                gerenciadorDePessoal->cadastrarFuncionario();
                 // ! problemas com espaço entre nome e sobrenome, pesqusar.
                 break;
             }
             case 2:
             {
-                gerenciadorDePessoal.pesquisarFuncionario();
+                gerenciadorDePessoal->pesquisarFuncionario();
                 break;
             }
             case 3:
             {
-                gerenciadorDePessoal.listarFuncionarios();
+                gerenciadorDePessoal->listarFuncionarios();
                 break;
             }
             case 4:
             {
-                gerenciadorDePessoal.desligarFuncionario();
+                gerenciadorDePessoal->desligarFuncionario();
                 break;
             }
             case 5:

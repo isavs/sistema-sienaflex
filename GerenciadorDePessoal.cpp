@@ -1,11 +1,6 @@
 #include "GerenciadorDePessoal.h"
 
-<<<<<<< HEAD
 GerenciadorDePessoal* GerenciadorDePessoal::gerenciadorDePessoal = 0;
-=======
-
-int GerenciadorDePessoal::id = 0;
->>>>>>> 37473289a53946ac143c5274d3d769b5ad79a4eb
 
 GerenciadorDePessoal::GerenciadorDePessoal()
 {
@@ -27,51 +22,42 @@ GerenciadorDePessoal* GerenciadorDePessoal::getGerenciadorDePessoal()
 
 void GerenciadorDePessoal::cadastrarFuncionario()
 {
-    char nome[300];
-<<<<<<< HEAD
+    string nome;
 
     cout << endl << "\tDados do funcionário:\n\tNome completo: ";
     __fpurge(stdin);
     fflush(stdin);
-    fgets(nome, 300, stdin);
+    getline(cin, nome);
 
     Funcionario* funcionario = new Funcionario(nome);
-=======
-    
-    cout << endl << "\tDados do funcionário:"<< endl <<"\tNome completo: ";
-    //__fpurge(stdin);
-    fflush(stdin);
-    fgets(nome, 300, stdin);
-    Funcionario* funcionario = new Funcionario(id, nome);
->>>>>>> 37473289a53946ac143c5274d3d769b5ad79a4eb
     listaFuncionarios.adicionarFuncionario(funcionario);
 }
 
 void GerenciadorDePessoal::desligarFuncionario()
 {
+    string nome;
     int id;
 
-    cout << "\n\tId: ";
+    cout << "\n\tNome completo: ";
+    __fpurge(stdin);
+    fflush(stdin);
+    getline(cin, nome);
+    cout << "\tId: ";
     cin >> id;
 
-    listaFuncionarios.removerFuncionario(id);
+    listaFuncionarios.removerFuncionario(nome, id);
 }
 
 void GerenciadorDePessoal::pesquisarFuncionario()
 {
-    int id;
+    string nome;
 
-    cout << "\n\tId: ";
-    cin >> id;
+    cout << "\n\tNome: ";
+    __fpurge(stdin);
+    fflush(stdin);
+    getline(cin, nome);
 
-    Funcionario* funcionario = listaFuncionarios.pesquisarFuncionario(id);
-
-    if (funcionario != NULL){
-        cout << "\tColaborador " << funcionario->getNome()
-             << " encontrado." << endl;
-    } else {
-        cout << "\n\tErro: funcionário não encontrado." << endl;
-    }
+    listaFuncionarios.pesquisarFuncionario(nome);
 }
 
 void GerenciadorDePessoal::listarFuncionarios()
