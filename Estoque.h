@@ -11,12 +11,18 @@ class Estoque
 private:
     //multimap<list<Mercadoria*>> listaMercadorias;
     list< list<Mercadoria*> > listaMercadorias;
+    list<Mercadoria*> listaColchoes;
+    list<Mercadoria*> listaPoltronas;
     //list<Colchao*> listaColchoes;
 
 
 public:
     Estoque();
     ~Estoque();
+
+    void inicializarListas();
+    void adicionarColchao(Mercadoria* colchao);
+    void adicionarPoltrona(Mercadoria* poltrona);
     /*
     void adicionarColchao(Colchao* colchao){
         if (colchao != NULL) {
