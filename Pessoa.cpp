@@ -41,3 +41,7 @@ const string Pessoa::getTelefone()
 {
     return telefone;
 }
+Endereco Pessoa::getEndereco()
+{
+    return endereco;
+}
