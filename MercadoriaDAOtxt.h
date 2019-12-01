@@ -3,11 +3,11 @@
 #include <vector>
 #include <string>
 #include <list>
-#include "EntidadeDAO.h"
+#include "MercadoriaDAO.h"
 #include "Mercadoria.h"
 using namespace std;
 
-class MercadoriaDAOtxt : public EntidadeDAO {
+class MercadoriaDAOtxt : public MercadoriaDAO {
 private:
     fstream arquivo;
 private:
@@ -20,11 +20,9 @@ private:
 public:
     MercadoriaDAOtxt();
     ~MercadoriaDAOtxt();
-    bool abrir(const char* s);
     bool gravar(const char* nome, Mercadoria* mercadoria);
-    void limpar(const char* nome);
-    void fechar();
     list<Mercadoria*> getListaMercadorias(const char* nome);
+    void fechar();
 
 };
 

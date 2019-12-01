@@ -3,12 +3,12 @@
 #include <vector>
 #include <string>
 #include <list>
-#include "EntidadeDAO.h"
+#include "PessoaDAO.h"
 #include "Pessoa.h"
 #include "Endereco.h"
 using namespace std;
 
-class PessoaDAOtxt : public EntidadeDAO {
+class PessoaDAOtxt : public PessoaDAO {
 private:
     fstream arquivo;
 private:
@@ -22,11 +22,9 @@ private:
 public:
     PessoaDAOtxt();
     ~PessoaDAOtxt();
-    bool abrir(const char* s);
     bool gravar(const char* nome, Pessoa* Pessoa);
-    void limpar(const char* nome);
-    void fechar();
     list<Pessoa*> getListaPessoas(const char* nome);
+    void fechar();
 
 };
 

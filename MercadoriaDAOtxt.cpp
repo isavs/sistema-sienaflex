@@ -69,12 +69,6 @@ bool  MercadoriaDAOtxt::gravar(const char* nome, string s) {
 }
 /*Métodos publicos*/
 
-bool MercadoriaDAOtxt::abrir(const char* nome){
-
-    return abrir(nome, ios::app);
-}
-
-
 bool MercadoriaDAOtxt::gravar(const char* nome, Mercadoria* mercadoria) {
 
     string s = to_string(mercadoria->getId()) + ";" 
@@ -98,11 +92,6 @@ list<Mercadoria*> MercadoriaDAOtxt::getListaMercadorias(const char* nome) {
     }
 
     return lista;
-}
-
-void MercadoriaDAOtxt::limpar(const char* nome){
-    abrir(nome, ios::trunc);
-    fechar();
 }
 
 void MercadoriaDAOtxt::fechar(){

@@ -78,12 +78,6 @@ bool  PessoaDAOtxt::gravar(const char* nome, string s) {
 }
 /*Métodos publicos*/
 
-bool PessoaDAOtxt::abrir(const char* nome){
-
-    return abrir(nome, ios::app);
-}
-
-
 bool PessoaDAOtxt::gravar(const char* nome, Pessoa* Pessoa) {
 
     string s = Pessoa->getNome() + ";" 
@@ -111,11 +105,6 @@ list<Pessoa*> PessoaDAOtxt::getListaPessoas(const char* nome) {
     }
 
     return lista;
-}
-
-void PessoaDAOtxt::limpar(const char* nome){
-    abrir(nome, ios::trunc);
-    fechar();
 }
 
 void PessoaDAOtxt::fechar(){
