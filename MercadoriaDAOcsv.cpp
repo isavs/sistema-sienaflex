@@ -1,15 +1,15 @@
-#include "MercadoriaDAOtxt.h"
+#include "MercadoriaDAOcsv.h"
 #include <iostream>
-MercadoriaDAOtxt::MercadoriaDAOtxt() {
+MercadoriaDAOcsv::MercadoriaDAOcsv() {
 
 }
-MercadoriaDAOtxt::~MercadoriaDAOtxt() {
+MercadoriaDAOcsv::~MercadoriaDAOcsv() {
     fechar();
 }
 
 /*Métodos privados*/
 
-string MercadoriaDAOtxt::ler(const char* nome){
+string MercadoriaDAOcsv::ler(const char* nome){
 
     if (abrir(nome, ios::in)) {
         string strArquivo((istreambuf_iterator<char>(arquivo)), istreambuf_iterator<char>());
@@ -20,7 +20,7 @@ string MercadoriaDAOtxt::ler(const char* nome){
     return nullptr;
 }
 
-bool MercadoriaDAOtxt::abrir(const char* nome, std::ios_base::openmode modo){
+bool MercadoriaDAOcsv::abrir(const char* nome, std::ios_base::openmode modo){
 
     arquivo.open(nome, modo);
 
@@ -31,7 +31,7 @@ bool MercadoriaDAOtxt::abrir(const char* nome, std::ios_base::openmode modo){
     return true;
 }
 
-Mercadoria*  MercadoriaDAOtxt::getMercadoria(string linha) {
+Mercadoria*  MercadoriaDAOcsv::getMercadoria(string linha) {
     
     int id = stoi(copiar(&linha, ';'));
     const char* nomeMercadoria = (copiar(&linha, ';')).c_str();
@@ -47,7 +47,7 @@ Mercadoria*  MercadoriaDAOtxt::getMercadoria(string linha) {
     return mercadoria;
  }
 
-string  MercadoriaDAOtxt::copiar(string *s, char parada)  {
+string  MercadoriaDAOcsv::copiar(string *s, char parada)  {
     string destino;
     int i;
     for(i = 0; (*s)[i] != parada; i++){
@@ -57,7 +57,7 @@ string  MercadoriaDAOtxt::copiar(string *s, char parada)  {
     return destino;
 }
 
-bool  MercadoriaDAOtxt::gravar(const char* nome, string s) {
+bool  MercadoriaDAOcsv::gravar(const char* nome, string s) {
     
     if(abrir(nome, ios::app)){
         arquivo <<s;
@@ -69,7 +69,7 @@ bool  MercadoriaDAOtxt::gravar(const char* nome, string s) {
 }
 /*Métodos publicos*/
 
-bool MercadoriaDAOtxt::gravar(const char* nome, Mercadoria* mercadoria) {
+bool MercadoriaDAOcsv::gravar(const char* nome, Mercadoria* mercadoria) {
 
     string s = to_string(mercadoria->getId()) + ";" 
     + mercadoria->getNome() + ";" 
@@ -83,7 +83,7 @@ bool MercadoriaDAOtxt::gravar(const char* nome, Mercadoria* mercadoria) {
     return gravar(nome, s);
 }
 
-list<Mercadoria*> MercadoriaDAOtxt::getListaMercadorias(const char* nome) {
+list<Mercadoria*> MercadoriaDAOcsv::getListaMercadorias(const char* nome) {
     string arquivo = ler(nome);
     list<Mercadoria*> lista;
     while(!arquivo.empty()) {
@@ -94,6 +94,6 @@ list<Mercadoria*> MercadoriaDAOtxt::getListaMercadorias(const char* nome) {
     return lista;
 }
 
-void MercadoriaDAOtxt::fechar(){
+void MercadoriaDAOcsv::fechar(){
     arquivo.close();
 }

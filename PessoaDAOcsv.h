@@ -3,25 +3,27 @@
 #include <vector>
 #include <string>
 #include <list>
-#include "MercadoriaDAO.h"
-#include "Mercadoria.h"
+#include "PessoaDAO.h"
+#include "Pessoa.h"
+#include "Endereco.h"
 using namespace std;
 
-class MercadoriaDAOtxt : public MercadoriaDAO {
+class PessoaDAOcsv : public PessoaDAO {
 private:
     fstream arquivo;
 private:
     string ler(const char* nome);
     bool abrir(const char* s, std::ios_base::openmode modo);
-    Mercadoria* getMercadoria(string linha);
+    Pessoa* getPessoa(string linha);
+    Endereco* getEndereco(string linha);
     string copiar(string *s, char parada);
     bool gravar(const char* nome, string s);
 
 public:
-    MercadoriaDAOtxt();
-    ~MercadoriaDAOtxt();
-    bool gravar(const char* nome, Mercadoria* mercadoria);
-    list<Mercadoria*> getListaMercadorias(const char* nome);
+    PessoaDAOcsv();
+    ~PessoaDAOcsv();
+    bool gravar(const char* nome, Pessoa* Pessoa);
+    list<Pessoa*> getListaPessoas(const char* nome);
     void fechar();
 
 };

@@ -1,15 +1,15 @@
-#include "PessoaDAOtxt.h"
+#include "PessoaDAOcsv.h"
 
-PessoaDAOtxt::PessoaDAOtxt() {
+PessoaDAOcsv::PessoaDAOcsv() {
 
 }
-PessoaDAOtxt::~PessoaDAOtxt() {
+PessoaDAOcsv::~PessoaDAOcsv() {
     fechar();
 }
 
 /*Métodos privados*/
 
-string PessoaDAOtxt::ler(const char* nome){
+string PessoaDAOcsv::ler(const char* nome){
 
     if (abrir(nome, ios::in)) {
         string strArquivo((istreambuf_iterator<char>(arquivo)), istreambuf_iterator<char>());
@@ -20,7 +20,7 @@ string PessoaDAOtxt::ler(const char* nome){
     return nullptr;
 }
 
-bool PessoaDAOtxt::abrir(const char* nome, std::ios_base::openmode modo){
+bool PessoaDAOcsv::abrir(const char* nome, std::ios_base::openmode modo){
 
     arquivo.open(nome, modo);
 
@@ -30,7 +30,7 @@ bool PessoaDAOtxt::abrir(const char* nome, std::ios_base::openmode modo){
 
     return true;
 }
-Endereco* PessoaDAOtxt::getEndereco(string linha) {
+Endereco* PessoaDAOcsv::getEndereco(string linha) {
 
     char* cep = (char*)(copiar(&linha, ';')).c_str();
     char* rua = (char*)(copiar(&linha, ';')).c_str();
@@ -44,7 +44,7 @@ Endereco* PessoaDAOtxt::getEndereco(string linha) {
     Endereco* endereco = new Endereco(cep, rua, numero, bairro, cidade, estado, pais, complemento);
     return endereco;
 }
-Pessoa*  PessoaDAOtxt::getPessoa(string linha) {
+Pessoa*  PessoaDAOcsv::getPessoa(string linha) {
     
     string nome = copiar(&linha, ';');
     string cpf = copiar(&linha, ';');
@@ -56,7 +56,7 @@ Pessoa*  PessoaDAOtxt::getPessoa(string linha) {
     return pessoa;
  }
 
-string  PessoaDAOtxt::copiar(string *s, char parada)  {
+string  PessoaDAOcsv::copiar(string *s, char parada)  {
     string destino;
     int i;
     for(i = 0; (*s)[i] != parada; i++){
@@ -66,7 +66,7 @@ string  PessoaDAOtxt::copiar(string *s, char parada)  {
     return destino;
 }
 
-bool  PessoaDAOtxt::gravar(const char* nome, string s) {
+bool  PessoaDAOcsv::gravar(const char* nome, string s) {
     
     if(abrir(nome, ios::app)){
         arquivo << s << endl;
@@ -78,7 +78,7 @@ bool  PessoaDAOtxt::gravar(const char* nome, string s) {
 }
 /*Métodos publicos*/
 
-bool PessoaDAOtxt::gravar(const char* nome, Pessoa* Pessoa) {
+bool PessoaDAOcsv::gravar(const char* nome, Pessoa* Pessoa) {
 
     string s = Pessoa->getNome() + ";" 
     + Pessoa->getCpf() + ";" 
@@ -96,7 +96,7 @@ bool PessoaDAOtxt::gravar(const char* nome, Pessoa* Pessoa) {
     return gravar(nome, s);
 }
 
-list<Pessoa*> PessoaDAOtxt::getListaPessoas(const char* nome) {
+list<Pessoa*> PessoaDAOcsv::getListaPessoas(const char* nome) {
     string arquivo = ler(nome);
     list<Pessoa*> lista;
     while(!arquivo.empty()) {
@@ -107,6 +107,6 @@ list<Pessoa*> PessoaDAOtxt::getListaPessoas(const char* nome) {
     return lista;
 }
 
-void PessoaDAOtxt::fechar(){
+void PessoaDAOcsv::fechar(){
     arquivo.close();
 }
