@@ -1,6 +1,6 @@
 #pragma once
 
-class Data
+class UData
 {
 public:
     int dia;
@@ -8,9 +8,9 @@ public:
     int ano;
 
 public:
-    Data();
-    Data(int dia, int mes, int ano);
-    ~Data();
+    UData();
+    UData(int dia, int mes, int ano);
+    ~UData();
     void setData(int dia, int mes, int ano);
     const int getDia();
     const int getMes();

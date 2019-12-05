@@ -24,4 +24,5 @@ public:
     const char* getCidade();
     const char* getEstado();
     const char* getPais();
+    const char* getComplemento() {return complemento;}
 };

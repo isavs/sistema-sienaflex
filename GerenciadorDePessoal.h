@@ -1,6 +1,6 @@
 #pragma once
 #include <stdio.h>
-#include <stdio_ext.h>
+//#include <stdio_ext.h>
 #include <iostream>
 using namespace std;
 #include "Pessoal.h"

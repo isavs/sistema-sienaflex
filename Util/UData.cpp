@@ -1,25 +1,25 @@
-#include "Data.h"
+#include "UData.h"
 
-Data::Data()
+UData::UData()
 {
     dia = 0;
     mes = 0;
     ano = 0;
 }
 
-Data::Data(int dia, int mes, int ano)
+UData::UData(int dia, int mes, int ano)
 {
     setData(dia, mes, ano);
 }
 
-Data::~Data()
+UData::~UData()
 {
 
 }
 
-void Data::setData(int dia, int mes, int ano)
+void UData::setData(int dia, int mes, int ano)
 {
-    
+
     if (mes > 12 || mes < 1 || dia < 0 || ano < 0) {
         /*Função de Controle*/
         return;
@@ -33,25 +33,25 @@ void Data::setData(int dia, int mes, int ano)
     else if (dia > 30) {
         /*Função de Controle*/
         return;
-    }   
-    
+    }
+
     this->dia = dia;
     this->mes = mes;
     this->ano = ano;
 
 }
 
-const int Data::getDia()
+const int UData::getDia()
 {
     return dia;
 }
 
-const int Data::getMes()
+const int UData::getMes()
 {
     return mes;
 }
 
-const int Data::getAno()
+const int UData::getAno()
 {
     return ano;
 }
