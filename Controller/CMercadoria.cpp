@@ -22,8 +22,7 @@ bool CMercadoria::criarColchao(string nome, string fabricante, string cor, float
 {
     MColchao* colchao = new MColchao(ids++, nome, fabricante, cor, largura, altura, profundidade, custo, preco, tamanho);
     CEstoque& cEstoque = CEstoque::getCEstoque();
-    bool valido = cEstoque.adicionarColchao(colchao);
-    return valido;
+    return cEstoque.adicionarColchao(colchao);
 }
 
 bool CMercadoria::criarBase(string nome, string fabricante, string cor, float largura, float altura, float profundidade, float custo, float preco, string tamanho)

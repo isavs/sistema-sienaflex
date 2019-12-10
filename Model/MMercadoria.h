@@ -37,7 +37,7 @@ public:
     const float getLargura();
     const float getAltura();
     const float getProfundidade();
-    //const float getCusto();
+    const float getCusto();
     const float getPreco();
     const MMercadoria* getDados();
 };

@@ -115,7 +115,7 @@ MEstofado* CEstoque::pesquisarIdEstofado(int id, int tipo)
 list<MColchao*> CEstoque::pesquisarColchoes(int tipo, string nome, string fabricante, string cor, float largura, float altura, float profundidade, float preco, string tamanho)
 {
     tipoMercadoria(tipo);
-    list<MColchao*> listaAux;
+    list<MColchao*> listaAux = listaColchoes;
     list<MColchao*>::iterator it;
     if (nome != ""){
         for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
@@ -204,7 +204,7 @@ list<MColchao*> CEstoque::pesquisarColchoes(int tipo, string nome, string fabric
 list<MEstofado*> CEstoque::pesquisarEstofados(int tipo, string nome, string fabricante, string cor, float largura, float altura, float profundidade, float preco, int lugares)
 {
     tipoMercadoria(tipo);
-    list<MEstofado*> listaAux;
+    list<MEstofado*> listaAux = listaEstofados;
     list<MEstofado*>::iterator it;
     if (nome != ""){
         for (it = listaEstofados.begin(); it != listaEstofados.end(); ++it){
@@ -337,6 +337,7 @@ list<MColchao*> CEstoque::checarFabricanteColchao(list<MColchao*> lista, string 
             lista.erase(it);
         }
     }
+    return lista;
 }
 
 list<MColchao*> CEstoque::checarCorColchao(list<MColchao*> lista, string cor)
@@ -347,6 +348,7 @@ list<MColchao*> CEstoque::checarCorColchao(list<MColchao*> lista, string cor)
             lista.erase(it);
         }
     }
+    return lista;
 }
 
 list<MColchao*> CEstoque::checarLarguraColchao(list<MColchao*> lista, float largura)
@@ -357,6 +359,7 @@ list<MColchao*> CEstoque::checarLarguraColchao(list<MColchao*> lista, float larg
             lista.erase(it);
         }
     }
+    return lista;
 }
 
 list<MColchao*> CEstoque::checarAlturaColchao(list<MColchao*> lista, float altura)
@@ -367,6 +370,7 @@ list<MColchao*> CEstoque::checarAlturaColchao(list<MColchao*> lista, float altur
             lista.erase(it);
         }
     }
+    return lista;
 }
 
 list<MColchao*> CEstoque::checarProfundidadeColchao(list<MColchao*> lista, float profundidade)
@@ -377,6 +381,7 @@ list<MColchao*> CEstoque::checarProfundidadeColchao(list<MColchao*> lista, float
             lista.erase(it);
         }
     }
+    return lista;
 }
 
 list<MColchao*> CEstoque::checarPrecoColchao(list<MColchao*> lista, float preco)
@@ -387,6 +392,7 @@ list<MColchao*> CEstoque::checarPrecoColchao(list<MColchao*> lista, float preco)
             lista.erase(it);
         }
     }
+    return lista;
 }
 
 list<MColchao*> CEstoque::checarTamanhoColchao(list<MColchao*> lista, string tamanho)
@@ -397,6 +403,7 @@ list<MColchao*> CEstoque::checarTamanhoColchao(list<MColchao*> lista, string tam
             lista.erase(it);
         }
     }
+    return lista;
 }
 
 list<MEstofado*> CEstoque::checarFabricanteEstofado(list<MEstofado*> lista, string fabricante)
@@ -407,6 +414,7 @@ list<MEstofado*> CEstoque::checarFabricanteEstofado(list<MEstofado*> lista, stri
             lista.erase(it);
         }
     }
+    return lista;
 }
 
 list<MEstofado*> CEstoque::checarCorEstofado(list<MEstofado*> lista, string cor)
@@ -417,6 +425,7 @@ list<MEstofado*> CEstoque::checarCorEstofado(list<MEstofado*> lista, string cor)
             lista.erase(it);
         }
     }
+    return lista;
 }
 
 list<MEstofado*> CEstoque::checarLarguraEstofado(list<MEstofado*> lista, float largura)
@@ -427,6 +436,7 @@ list<MEstofado*> CEstoque::checarLarguraEstofado(list<MEstofado*> lista, float l
             lista.erase(it);
         }
     }
+    return lista;
 }
 
 list<MEstofado*> CEstoque::checarAlturaEstofado(list<MEstofado*> lista, float altura)
@@ -437,6 +447,7 @@ list<MEstofado*> CEstoque::checarAlturaEstofado(list<MEstofado*> lista, float al
             lista.erase(it);
         }
     }
+    return lista;
 }
 
 list<MEstofado*> CEstoque::checarProfundidadeEstofado(list<MEstofado*> lista, float profundidade)
@@ -447,6 +458,7 @@ list<MEstofado*> CEstoque::checarProfundidadeEstofado(list<MEstofado*> lista, fl
             lista.erase(it);
         }
     }
+    return lista;
 }
 
 list<MEstofado*> CEstoque::checarPrecoEstofado(list<MEstofado*> lista, float preco)
@@ -457,6 +469,7 @@ list<MEstofado*> CEstoque::checarPrecoEstofado(list<MEstofado*> lista, float pre
             lista.erase(it);
         }
     }
+    return lista;
 }
 
 list<MEstofado*> CEstoque::checarLugaresEstofado(list<MEstofado*> lista, int lugares)
@@ -467,6 +480,7 @@ list<MEstofado*> CEstoque::checarLugaresEstofado(list<MEstofado*> lista, int lug
             lista.erase(it);
         }
     }
+    return lista;
 }
 
 void CEstoque::atualizarColchao(MColchao* colchao, string nome, string fabricante, string cor, float largura, float altura, float profundidade, float preco, string tamanho)

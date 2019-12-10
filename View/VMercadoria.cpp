@@ -508,6 +508,8 @@ void VMercadoria::pesquisarCaracteristicas()
                 __fpurge(stdin);
                 fflush(stdin);
                 getline(cin, tamanho);
+                cin >> preco;
+                cout << "Produtos encontrados " << endl;
                 listaColchoes = cEstoque.pesquisarColchoes(1, nome, fabricante, cor, largura, altura, profundidade, preco, tamanho);
                 list<MColchao*>::iterator it;
                 for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
@@ -708,7 +710,6 @@ void VMercadoria::remover()
     __fpurge(stdin);
     fflush(stdin);
     cin >> id;
-    bool removido = false;
     if (cEstoque.removerColchao(id))
         cout << "Colchao removido com sucesso." << endl;
     else if (cEstoque.removerBase(id))
