@@ -1,32 +1,37 @@
 #pragma once
 #include <list>
 #include "../Model/MMercadoria.h"
+#include "../Model/MColchao.h"
+#include "../Model/MEstofado.h"
 
 class MEstoque
 {
 private:
-    static MEstoque* mEstoque;
+    //static MEstoque* mEstoque;
     //list< list<MMercadoria*> > listaMercadorias;
-    list<MMercadoria*> listaColchoes;
-    list<MMercadoria*> listaBases;
-    list<MMercadoria*> listaSofas;
-    list<MMercadoria*> listaPoltronas;
-    list<MMercadoria*> listaPuffs;
+    list<MColchao*> listaColchoes;
+    list<MColchao*> listaBases;
+    list<MEstofado*> listaSofas;
+    list<MEstofado*> listaPoltronas;
+    list<MEstofado*> listaPuffs;
 
 private:
     MEstoque();
     ~MEstoque();
 
 public:
-    static MEstoque* getMEstoque();
-    bool setColchao(MMercadoria* colchao);
-    bool setBase(MMercadoria* base);
-    bool setSofa(MMercadoria* sofa);
-    bool setPoltrona(MMercadoria* poltrona);
-    bool setPuff(MMercadoria* puff);
-    list<MMercadoria*> getListaColchoes();
-    list<MMercadoria*> getListaBases();
-    list<MMercadoria*> getListaSofas();
-    list<MMercadoria*> getListaPoltronas();
-    list<MMercadoria*> getListaPuffs();
+    static MEstoque &getMEstoque();
+    MEstoque(const MEstoque&) = delete;
+    void operator = (const MEstoque&) = delete;
+
+    bool setColchao(MColchao* colchao);
+    bool setBase(MColchao* base);
+    bool setSofa(MEstofado* sofa);
+    bool setPoltrona(MEstofado* poltrona);
+    bool setPuff(MEstofado* puff);
+    list<MColchao*> getListaColchoes();
+    list<MColchao*> getListaBases();
+    list<MEstofado*> getListaSofas();
+    list<MEstofado*> getListaPoltronas();
+    list<MEstofado*> getListaPuffs();
 };

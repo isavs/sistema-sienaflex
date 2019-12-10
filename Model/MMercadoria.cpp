@@ -12,15 +12,18 @@ MMercadoria::MMercadoria()
 }
 
 
-MMercadoria::MMercadoria(int id, const char *nome,const char *fabricante,const char *cor,const char* marca, float custo, float preco,bool vendida)
+MMercadoria::MMercadoria(int id, string nome, string fabricante, string cor, float largura, float altura, float profundidade, float custo, float preco)
 {
     this->id = id;
     this->nome = nome;
     this->fabricante = fabricante;
     this->cor = cor;
+    this->largura = largura;
+    this->altura = altura;
+    this->profundidade = profundidade;
     this->custo = custo;
     this->preco = preco;
-    this->vendida = vendida;
+    this->vendida = false;
 }
 
 MMercadoria::~MMercadoria()
@@ -52,6 +55,21 @@ void MMercadoria::setMedidas(float largura, float altura, float profundida)
 {
     this->largura = largura;
     this->altura = altura;
+    this->profundidade = profundidade;
+}
+
+void MMercadoria::setLargura(float largura)
+{
+    this->largura = largura;
+}
+
+void MMercadoria::setAltura(float altura)
+{
+    this->altura = altura;
+}
+
+void MMercadoria::setProfundidade(float profundidade)
+{
     this->profundidade = profundidade;
 }
 

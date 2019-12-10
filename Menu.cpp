@@ -2,8 +2,7 @@
 
 Menu::Menu()
 {
-    gerenciadorDePessoal = GerenciadorDePessoal::getGerenciadorDePessoal();
-    menuPessoal();
+    menu();
 }
 
 Menu::~Menu()
@@ -11,41 +10,30 @@ Menu::~Menu()
 
 }
 
-void Menu::menuPessoal()
+void Menu::menu()
 {
     int caso = -1;
-    while (caso != 5){
-        cout << "\n\t1 - Cadastrar funcionário" << endl
-             << "\t2 - Pesquisar funcionário" << endl
-             << "\t3 - Lista de funcionários" << endl
-             << "\t4 - Desligar funcionário" << endl
-             << "\t5 - Sair\n\t>> ";
+    while (caso != 4){
+        cout << "\n1 - Mercadorias || 2 - Funcionarios || 3 - Relatorios || 4 - Sair\n>> ";
         cin >> caso;
 
         switch(caso)
         {
             case 1:
             {
-                gerenciadorDePessoal->cadastrarFuncionario();
-                // ! problemas com espaço entre nome e sobrenome, pesqusar.
+                vMercadoria->view();
                 break;
             }
             case 2:
             {
-                gerenciadorDePessoal->pesquisarFuncionario();
+                //gerenciadorDePessoal->pesquisarFuncionario();
                 break;
             }
             case 3:
             {
-                gerenciadorDePessoal->listarFuncionarios();
                 break;
             }
             case 4:
-            {
-                gerenciadorDePessoal->desligarFuncionario();
-                break;
-            }
-            case 5:
             {
                 break;
             }

@@ -1,6 +1,6 @@
 #include "MEstoque.h"
 
-MEstoque* MEstoque::mEstoque = 0;
+//MEstoque* MEstoque::mEstoque = NULL;
 
 MEstoque::MEstoque()
 {
@@ -9,18 +9,16 @@ MEstoque::MEstoque()
 
 MEstoque::~MEstoque()
 {
-    delete mEstoque;
+
 }
 
-MEstoque* MEstoque::getMEstoque()
+MEstoque& MEstoque::getMEstoque()
 {
-    if (mEstoque == 0){
-        mEstoque = new MEstoque();
-    }
+    static MEstoque mEstoque;
     return mEstoque;
 }
 
-bool MEstoque::setColchao(MMercadoria* colchao)
+bool MEstoque::setColchao(MColchao* colchao)
 {
     if (colchao != NULL){
         listaColchoes.push_back(colchao);
@@ -29,7 +27,7 @@ bool MEstoque::setColchao(MMercadoria* colchao)
     return false;
 }
 
-bool MEstoque::setBase(MMercadoria* base)
+bool MEstoque::setBase(MColchao* base)
 {
     if (base != NULL){
         listaBases.push_back(base);
@@ -38,7 +36,7 @@ bool MEstoque::setBase(MMercadoria* base)
     return false;
 }
 
-bool MEstoque::setSofa(MMercadoria* sofa)
+bool MEstoque::setSofa(MEstofado* sofa)
 {
     if (sofa != NULL){
         listaSofas.push_back(sofa);
@@ -47,7 +45,7 @@ bool MEstoque::setSofa(MMercadoria* sofa)
     return false;
 }
 
-bool MEstoque::setPoltrona(MMercadoria* poltrona)
+bool MEstoque::setPoltrona(MEstofado* poltrona)
 {
     if (poltrona != NULL){
         listaPoltronas.push_back(poltrona);
@@ -56,7 +54,7 @@ bool MEstoque::setPoltrona(MMercadoria* poltrona)
     return false;
 }
 
-bool MEstoque::setPuff(MMercadoria* puff)
+bool MEstoque::setPuff(MEstofado* puff)
 {
     if (puff != NULL){
         listaPuffs.push_back(puff);
@@ -65,27 +63,27 @@ bool MEstoque::setPuff(MMercadoria* puff)
     return false;
 }
 
-list<MMercadoria*> MEstoque::getListaColchoes()
+list<MColchao*> MEstoque::getListaColchoes()
 {
     return listaColchoes;
 }
 
-list<MMercadoria*> MEstoque::getListaBases()
+list<MColchao*> MEstoque::getListaBases()
 {
     return listaBases;
 }
 
-list<MMercadoria*> MEstoque::getListaSofas()
+list<MEstofado*> MEstoque::getListaSofas()
 {
     return listaSofas;
 }
 
-list<MMercadoria*> MEstoque::getListaPoltronas()
+list<MEstofado*> MEstoque::getListaPoltronas()
 {
     return listaPoltronas;
 }
 
-list<MMercadoria*> MEstoque::getListaPuffs()
+list<MEstofado*> MEstoque::getListaPuffs()
 {
     return listaPuffs;
 }

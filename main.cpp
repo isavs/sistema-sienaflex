@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 #include <iostream>
-#include "Estoque.h"
 #include "Menu.h"
 
 int main()
