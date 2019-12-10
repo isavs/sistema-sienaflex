@@ -1,7 +1,5 @@
 #include "MFuncionarios.h"
 
-MFuncionarios* MFuncionarios::mFuncionarios = 0;
-
 MFuncionarios::MFuncionarios()
 {
 
@@ -12,11 +10,9 @@ MFuncionarios::~MFuncionarios()
     delete mFuncionarios;
 }
 
-MFuncionarios* MFuncionarios::getMFuncionarios()
+MFuncionarios& MFuncionarios::getMFuncionarios()
 {
-    if (mFuncionarios == 0){
-        mFuncionarios = new MFuncionarios();
-    }
+    static MFuncionarios mFuncionarios;
     return mFuncionarios;
 }
 

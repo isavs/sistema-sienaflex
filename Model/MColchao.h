@@ -9,9 +9,10 @@ private:
     string tamanho;
 
 public:
-    MColchao(){}
+    MColchao();
     MColchao(int id, string nome, string fabricante, string cor, float largura, float altura, float profundidade, float custo, float preco, string tamanho);
     ~MColchao();
     void setTamanho(string tamanho);
     const string getTamanho();
+    MColchao* getDados();
 };

@@ -4,8 +4,8 @@ MFuncionario::MFuncionario()
 : MPessoa()
 {
     id = 0;
+    cargo = "";
     salario = 0.0;
-    ativo = true;
 }
 
 /* Para testes */
@@ -15,10 +15,11 @@ MFuncionario::MFuncionario(int id, string nome)
     this->id = id;
 }
 
-MFuncionario::MFuncionario(int id, string nome, string cpf, string telefone, UEndereco endereco, double salario)
+MFuncionario::MFuncionario(int id, string nome, string cpf, string telefone, UEndereco endereco, string cargo, double salario)
 : MPessoa(nome, cpf, telefone, endereco)
 {
     this->id = id;
+    this->cargo = cargo;
     this->salario = salario;
 }
 
@@ -32,14 +33,14 @@ void MFuncionario::setId(int id)
     this->id = id;
 }
 
+void MFuncionario::setCargo(string cargo)
+{
+    this->cargo = cargo;
+}
+
 void MFuncionario::setSalario(double salario)
 {
     this->salario = salario;
-}
-
-void MFuncionario::setStatus(bool ativo)
-{
-    this->ativo = ativo;
 }
 
 const int MFuncionario::getId()
@@ -47,12 +48,12 @@ const int MFuncionario::getId()
     return id;
 }
 
+const string MFuncionario::getCargo()
+{
+    return cargo;
+}
+
 const double MFuncionario::getSalario()
 {
     return salario;
-}
-
-const bool MFuncionario::getStatus()
-{
-    return ativo;
 }

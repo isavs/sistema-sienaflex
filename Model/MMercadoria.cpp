@@ -123,6 +123,11 @@ const float MMercadoria::getProfundidade()
     return profundidade;
 }
 
+const float MMercadoria::getCusto()
+{
+    return custo;
+}
+
 const float MMercadoria::getPreco()
 {
     return preco;

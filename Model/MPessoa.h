@@ -22,5 +22,5 @@ public:
     const string getNome();
     const string getCpf();
     const string getTelefone();
-    const UEndereco getEndereco();
+    UEndereco getEndereco();
 };

@@ -13,7 +13,10 @@ private:
     ~MFuncionarios();
 
 public:
-    static MFuncionarios* getMFuncionarios();
+    static MFuncionarios &getMFuncionarios();
+    MFuncionarios(const MFuncionarios&) = delete;
+    void operator = (const MFuncionarios&) = delete;
+
     bool setFuncionario(MFuncionario* funcionario);
     list<MFuncionario*> getListaFuncionarios();
 };

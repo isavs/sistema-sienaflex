@@ -1,7 +1,5 @@
 #include "MEstoque.h"
 
-//MEstoque* MEstoque::mEstoque = NULL;
-
 MEstoque::MEstoque()
 {
 
