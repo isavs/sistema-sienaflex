@@ -29,6 +29,11 @@ public:
     bool setSofa(MEstofado* sofa);
     bool setPoltrona(MEstofado* poltrona);
     bool setPuff(MEstofado* puff);
+    bool removerColchao(MColchao* colchao);
+    bool removerBase(MColchao* base);
+    bool removerSofa(MEstofado* sofa);
+    bool removerPoltrona(MEstofado* poltrona);
+    bool removerPuff(MEstofado* puff);
     list<MColchao*> getListaColchoes();
     list<MColchao*> getListaBases();
     list<MEstofado*> getListaSofas();

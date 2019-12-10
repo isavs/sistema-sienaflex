@@ -118,83 +118,58 @@ list<MColchao*> CEstoque::pesquisarColchoes(int tipo, string nome, string fabric
     list<MColchao*> listaAux = listaColchoes;
     list<MColchao*>::iterator it;
     if (nome != ""){
-        for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
-            size_t nomeEncontrado = ((*it)->getNome()).find(nome);
-            if (nomeEncontrado != string::npos){
-                listaAux.push_back(*it);
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getNome() != nome){
+                it = listaAux.erase(it);
             }
         }
     }
     if (fabricante != ""){
-        listaAux = checarFabricanteColchao(listaAux, fabricante);
-        for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
-            size_t fabricanteEncontrado = ((*it)->getFabricante()).find(fabricante);
-            if (fabricanteEncontrado != string::npos){
-                if (!checarListaColchao(listaAux, (*it))){
-                    listaAux.push_back(*it);
-                }
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getFabricante() != fabricante){
+                it = listaAux.erase(it);
             }
         }
     }
     if (cor != ""){
-        listaAux = checarCorColchao(listaAux, cor);
-        for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
-            size_t corEncontrada = ((*it)->getCor()).find(cor);
-            if (corEncontrada != string::npos){
-                if (!checarListaColchao(listaAux, (*it))){
-                    listaAux.push_back(*it);
-                }
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getCor() != cor){
+                it = listaAux.erase(it);
             }
         }
     }
     if (largura != 0.0){
-        listaAux = checarLarguraColchao(listaAux, largura);
-        for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
-            if (largura <= (*it)->getLargura()){
-                if (!checarListaColchao(listaAux, (*it))){
-                    listaAux.push_back(*it);
-                }
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getLargura() > largura){
+                it = listaAux.erase(it);
             }
         }
     }
     if (altura != 0.0){
-        listaAux = checarAlturaColchao(listaAux, altura);
-        for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
-            if (altura <= (*it)->getAltura()){
-                if (!checarListaColchao(listaAux, (*it))){
-                    listaAux.push_back(*it);
-                }
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getAltura() > altura){
+                it = listaAux.erase(it);
             }
         }
     }
     if (profundidade != 0.0){
-        listaAux = checarProfundidadeColchao(listaAux, profundidade);
-        for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
-            if (profundidade <= (*it)->getProfundidade()){
-                if (!checarListaColchao(listaAux, (*it))){
-                    listaAux.push_back(*it);
-                }
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getProfundidade() > profundidade){
+                it = listaAux.erase(it);
             }
         }
     }
     if (preco != 0.0){
-        listaAux = checarPrecoColchao(listaAux, preco);
-        for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
-            if (preco <= (*it)->getPreco()){
-                if (!checarListaColchao(listaAux, (*it))){
-                    listaAux.push_back(*it);
-                }
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getPreco() > preco){
+                it = listaAux.erase(it);
             }
         }
     }
     if (tamanho != ""){
-        listaAux = checarTamanhoColchao(listaAux, tamanho);
-        for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
-            size_t tamanhoEncontrado = ((*it)->getTamanho()).find(tamanho);
-            if (tamanhoEncontrado != string::npos){
-                if (!checarListaColchao(listaAux, (*it))){
-                    listaAux.push_back(*it);
-                }
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getTamanho() == tamanho){
+                it = listaAux.erase(it);
             }
         }
     }
@@ -207,82 +182,58 @@ list<MEstofado*> CEstoque::pesquisarEstofados(int tipo, string nome, string fabr
     list<MEstofado*> listaAux = listaEstofados;
     list<MEstofado*>::iterator it;
     if (nome != ""){
-        for (it = listaEstofados.begin(); it != listaEstofados.end(); ++it){
-            size_t nomeEncontrado = ((*it)->getNome()).find(nome);
-            if (nomeEncontrado != string::npos){
-                listaAux.push_back(*it);
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getNome() != nome){
+                it = listaAux.erase(it);
             }
         }
     }
     if (fabricante != ""){
-        listaAux = checarFabricanteEstofado(listaAux, fabricante);
-        for (it = listaEstofados.begin(); it != listaEstofados.end(); ++it){
-            size_t fabricanteEncontrado = ((*it)->getFabricante()).find(fabricante);
-            if (fabricanteEncontrado != string::npos){
-                if (!checarListaEstofado(listaAux, (*it))){
-                    listaAux.push_back(*it);
-                }
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getFabricante() != fabricante){
+                it = listaAux.erase(it);
             }
         }
     }
     if (cor != ""){
-        listaAux = checarCorEstofado(listaAux, cor);
-        for (it = listaEstofados.begin(); it != listaEstofados.end(); ++it){
-            size_t corEncontrado = ((*it)->getCor()).find(cor);
-            if (corEncontrado != string::npos){
-                if (!checarListaEstofado(listaAux, (*it))){
-                    listaAux.push_back(*it);
-                }
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getCor() != cor){
+                it = listaAux.erase(it);
             }
         }
     }
     if (largura != 0.0){
-        listaAux = checarLarguraEstofado(listaAux, largura);
-        for (it = listaEstofados.begin(); it != listaEstofados.end(); ++it){
-            if (largura <= (*it)->getLargura()){
-                if (!checarListaEstofado(listaAux, (*it))){
-                    listaAux.push_back(*it);
-                }
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getLargura() > largura){
+                it = listaAux.erase(it);
             }
         }
     }
     if (altura != 0.0){
-        listaAux = checarAlturaEstofado(listaAux, altura);
-        for (it = listaEstofados.begin(); it != listaEstofados.end(); ++it){
-            if (altura <= (*it)->getAltura()){
-                if (!checarListaEstofado(listaAux, (*it))){
-                    listaAux.push_back(*it);
-                }
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getAltura() > altura){
+                it = listaAux.erase(it);
             }
         }
     }
     if (profundidade != 0.0){
-        listaAux = checarProfundidadeEstofado(listaAux, profundidade);
-        for (it = listaEstofados.begin(); it != listaEstofados.end(); ++it){
-            if (profundidade <= (*it)->getProfundidade()){
-                if (!checarListaEstofado(listaAux, (*it))){
-                    listaAux.push_back(*it);
-                }
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getProfundidade() > profundidade){
+                it = listaAux.erase(it);
             }
         }
     }
     if (preco != 0.0){
-        listaAux = checarPrecoEstofado(listaAux, preco);
-        for (it = listaEstofados.begin(); it != listaEstofados.end(); ++it){
-            if (preco <= (*it)->getPreco()){
-                if (!checarListaEstofado(listaAux, (*it))){
-                    listaAux.push_back(*it);
-                }
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getPreco() > preco){
+                it = listaAux.erase(it);
             }
         }
     }
     if (lugares != 0){
-        listaAux = checarLugaresEstofado(listaAux, lugares);
-        for (it = listaEstofados.begin(); it != listaEstofados.end(); ++it){
-            if (lugares == (*it)->getLugares()){
-                if (!checarListaEstofado(listaAux, (*it))){
-                    listaAux.push_back(*it);
-                }
+        for (it = listaAux.begin(); it != listaAux.end(); ++it){
+            if ((*it)->getLugares() != lugares){
+                it = listaAux.erase(it);
             }
         }
     }
@@ -307,10 +258,10 @@ void CEstoque::tipoMercadoria(int tipo)
     }
 }
 
-bool CEstoque::checarListaColchao(list<MColchao*> lista, MColchao* mercadoria)
+bool CEstoque::checarListaColchao(list<MColchao*> listaAux, MColchao* mercadoria)
 {
     list<MColchao*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
+    for (it = listaAux.begin(); it != listaAux.end(); ++it){
         if ((*it) == mercadoria){
             return true;
         }
@@ -318,169 +269,15 @@ bool CEstoque::checarListaColchao(list<MColchao*> lista, MColchao* mercadoria)
     return false;
 }
 
-bool CEstoque::checarListaEstofado(list<MEstofado*> lista, MEstofado* mercadoria)
+bool CEstoque::checarListaEstofado(list<MEstofado*> listaAux, MEstofado* mercadoria)
 {
     list<MEstofado*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
+    for (it = listaAux.begin(); it != listaAux.end(); ++it){
         if ((*it) == mercadoria){
             return true;
         }
     }
     return false;
-}
-
-list<MColchao*> CEstoque::checarFabricanteColchao(list<MColchao*> lista, string fabricante)
-{
-    list<MColchao*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        if ((*it)->getFabricante() != fabricante){
-            lista.erase(it);
-        }
-    }
-    return lista;
-}
-
-list<MColchao*> CEstoque::checarCorColchao(list<MColchao*> lista, string cor)
-{
-    list<MColchao*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        if ((*it)->getCor() != cor){
-            lista.erase(it);
-        }
-    }
-    return lista;
-}
-
-list<MColchao*> CEstoque::checarLarguraColchao(list<MColchao*> lista, float largura)
-{
-    list<MColchao*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        if ((*it)->getLargura() > largura){
-            lista.erase(it);
-        }
-    }
-    return lista;
-}
-
-list<MColchao*> CEstoque::checarAlturaColchao(list<MColchao*> lista, float altura)
-{
-    list<MColchao*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        if ((*it)->getAltura() > altura){
-            lista.erase(it);
-        }
-    }
-    return lista;
-}
-
-list<MColchao*> CEstoque::checarProfundidadeColchao(list<MColchao*> lista, float profundidade)
-{
-    list<MColchao*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        if ((*it)->getProfundidade() > profundidade){
-            lista.erase(it);
-        }
-    }
-    return lista;
-}
-
-list<MColchao*> CEstoque::checarPrecoColchao(list<MColchao*> lista, float preco)
-{
-    list<MColchao*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        if ((*it)->getPreco() > preco){
-            lista.erase(it);
-        }
-    }
-    return lista;
-}
-
-list<MColchao*> CEstoque::checarTamanhoColchao(list<MColchao*> lista, string tamanho)
-{
-    list<MColchao*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        if ((*it)->getTamanho() == tamanho){
-            lista.erase(it);
-        }
-    }
-    return lista;
-}
-
-list<MEstofado*> CEstoque::checarFabricanteEstofado(list<MEstofado*> lista, string fabricante)
-{
-    list<MEstofado*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        if ((*it)->getFabricante() != fabricante){
-            lista.erase(it);
-        }
-    }
-    return lista;
-}
-
-list<MEstofado*> CEstoque::checarCorEstofado(list<MEstofado*> lista, string cor)
-{
-    list<MEstofado*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        if ((*it)->getCor() != cor){
-            lista.erase(it);
-        }
-    }
-    return lista;
-}
-
-list<MEstofado*> CEstoque::checarLarguraEstofado(list<MEstofado*> lista, float largura)
-{
-    list<MEstofado*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        if ((*it)->getLargura() > largura){
-            lista.erase(it);
-        }
-    }
-    return lista;
-}
-
-list<MEstofado*> CEstoque::checarAlturaEstofado(list<MEstofado*> lista, float altura)
-{
-    list<MEstofado*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        if ((*it)->getAltura() > altura){
-            lista.erase(it);
-        }
-    }
-    return lista;
-}
-
-list<MEstofado*> CEstoque::checarProfundidadeEstofado(list<MEstofado*> lista, float profundidade)
-{
-    list<MEstofado*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        if ((*it)->getProfundidade() > profundidade){
-            lista.erase(it);
-        }
-    }
-    return lista;
-}
-
-list<MEstofado*> CEstoque::checarPrecoEstofado(list<MEstofado*> lista, float preco)
-{
-    list<MEstofado*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        if ((*it)->getPreco() > preco){
-            lista.erase(it);
-        }
-    }
-    return lista;
-}
-
-list<MEstofado*> CEstoque::checarLugaresEstofado(list<MEstofado*> lista, int lugares)
-{
-    list<MEstofado*>::iterator it;
-    for (it = lista.begin(); it != lista.end(); ++it){
-        if ((*it)->getLugares() != lugares){
-            lista.erase(it);
-        }
-    }
-    return lista;
 }
 
 void CEstoque::atualizarColchao(MColchao* colchao, string nome, string fabricante, string cor, float largura, float altura, float profundidade, float preco, string tamanho)
@@ -556,64 +353,29 @@ list<MEstofado*> CEstoque::listarPuffs()
 bool CEstoque::removerColchao(int id)
 {
     MEstoque& mEstoque = MEstoque::getMEstoque();
-    list<MColchao*>::iterator it;
-    for (it = mEstoque.getListaColchoes().begin(); it != mEstoque.getListaColchoes().end(); ++it){
-        if ((*it)->getId() == id){
-            mEstoque.getListaColchoes().erase(it);
-            return true;
-        }
-    }
-    return false;
+    return mEstoque.removerColchao(pesquisarIdColchao(id, 1));
 }
 
 bool CEstoque::removerBase(int id)
 {
     MEstoque& mEstoque = MEstoque::getMEstoque();
-    list<MColchao*>::iterator it;
-    for (it = mEstoque.getListaBases().begin(); it != mEstoque.getListaBases().end(); ++it){
-        if ((*it)->getId() == id){
-            mEstoque.getListaBases().erase(it);
-            return true;
-        }
-    }
-    return false;
+    return mEstoque.removerBase(pesquisarIdColchao(id, 2));
 }
 
 bool CEstoque::removerSofa(int id)
 {
     MEstoque& mEstoque = MEstoque::getMEstoque();
-    list<MEstofado*>::iterator it;
-    for (it = mEstoque.getListaSofas().begin(); it != mEstoque.getListaSofas().end(); ++it){
-        if ((*it)->getId() == id){
-            mEstoque.getListaSofas().erase(it);
-            return true;
-        }
-    }
-    return false;
+    return mEstoque.removerSofa(pesquisarIdEstofado(id, 3));
 }
 
 bool CEstoque::removerPoltrona(int id)
 {
     MEstoque& mEstoque = MEstoque::getMEstoque();
-    list<MEstofado*>::iterator it;
-    for (it = mEstoque.getListaPoltronas().begin(); it != mEstoque.getListaPoltronas().end(); ++it){
-        if ((*it)->getId() == id){
-            mEstoque.getListaPoltronas().erase(it);
-            return true;
-        }
-    }
-    return false;
+    return mEstoque.removerPoltrona(pesquisarIdEstofado(id, 4));
 }
 
 bool CEstoque::removerPuff(int id)
 {
     MEstoque& mEstoque = MEstoque::getMEstoque();
-    list<MEstofado*>::iterator it;
-    for (it = mEstoque.getListaPuffs().begin(); it != mEstoque.getListaPuffs().end(); ++it){
-        if ((*it)->getId() == id){
-            mEstoque.getListaPuffs().erase(it);
-            return true;
-        }
-    }
-    return false;
+    return mEstoque.removerPuff(pesquisarIdEstofado(id, 5));
 }

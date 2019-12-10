@@ -7,14 +7,20 @@ class CFuncionarios
 {
 private:
     static int ids;
-    int id;
-    MFuncionarios* funcionarios;
 
-public:
+private:
     CFuncionarios();
     ~CFuncionarios();
-    bool adicionar(string nome, string cpf, string telefone, double salario);
+
+public:
+    static CFuncionarios &getCFuncionarios();
+    CFuncionarios(const CFuncionarios&) = delete;
+    void operator = (const CFuncionarios&) = delete;
+
+    bool adicionar(string nome, string cpf, string telefone, UEndereco endereco, string cargo, double salarioHora);
+    void atualizar(MFuncionario* funcionario, string nome, string cpf, string telefone, UEndereco endereco, string cargo, double salarioHora);
     bool remover(const string nome, const int id);
-    list<MFuncionario*> pesquisar(const string nome);
+    MFuncionario* pesquisar(const int id, const string cpf);
+    list<MFuncionario*> pesquisarNomes(const string nome);
     list<MFuncionario*> listar();
 };

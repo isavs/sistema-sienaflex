@@ -14,7 +14,7 @@ void VMercadoria::view()
 {
     int opcao = -1;
     while (opcao != 6){
-        cout << "\nMERCADORIAS\n1 - Cadastrar\n2 - Atualizar\n3 - Pesquisar\n4 - Remover\n5 - Listar\n6 - Voltar\n>> ";
+        cout << "\nMERCADORIAS\n1 - Cadastrar || 2 - Atualizar || 3 - Pesquisar || 4 - Remover || 5 - Listar || 6 - Voltar\n>> ";
         __fpurge(stdin);
         fflush(stdin);
         cin >> opcao;
@@ -73,7 +73,7 @@ void VMercadoria::adicionar()
     bool valido = false;
     int opcao = -1;
     while (opcao != 6){
-        cout << "\nCADASTRO DE MERCADORIA\n1 - Colchao\n2 - Base\n3 - Sofa\n4 - Poltrona\n5 - Puff\n6 - Voltar\n>> ";
+        cout << "\nCADASTRO DE MERCADORIA\n1 - Colchao || 2 - Base || 3 - Sofa || 4 - Poltrona || 5 - Puff || 6 - Voltar\n>> ";
         __fpurge(stdin);
         fflush(stdin);
         cin >> opcao;
@@ -409,7 +409,7 @@ void VMercadoria::pesquisar()
 {
     int opcao = -1;
     while (opcao != 3){
-        cout << "\n1 - Pesquisar produto especifico\n2 - Pesquisar lista de produtos\n3 - Voltar\n>> ";
+        cout << "\n1 - Pesquisar produto especifico || 2 - Pesquisar lista de produtos || 3 - Voltar\n>> ";
         __fpurge(stdin);
         fflush(stdin);
         cin >> opcao;
@@ -469,7 +469,7 @@ void VMercadoria::pesquisarCaracteristicas()
     float lugares = 0;
     int opcao = -1;
     while (opcao != 6){
-        cout << "\nPESQUISA DE MERCADORIAS\n1 - Colchao\n2 - Base\n3 - Sofa\n4 - Poltrona\n5 - Puff\n6 - Voltar\n>> ";
+        cout << "\nPESQUISA DE MERCADORIAS\n1 - Colchao || 2 - Base || 3 - Sofa || 4 - Poltrona || 5 - Puff || 6 - Voltar\n>> ";
         cin >> opcao;
         switch (opcao)
         {
@@ -508,9 +508,14 @@ void VMercadoria::pesquisarCaracteristicas()
                 __fpurge(stdin);
                 fflush(stdin);
                 getline(cin, tamanho);
-                cin >> preco;
-                cout << "Produtos encontrados " << endl;
+                cout << endl;
                 listaColchoes = cEstoque.pesquisarColchoes(1, nome, fabricante, cor, largura, altura, profundidade, preco, tamanho);
+                if (listaColchoes.empty()){
+                    cout << "Nenhuma mercadoria encontrada." << endl;
+                    break;
+                }
+                cout << "Produtos encontrados" << endl;
+                cout << endl;
                 list<MColchao*>::iterator it;
                 for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
                     getInfo(*it);
@@ -731,7 +736,7 @@ void VMercadoria::listar()
     list<MEstofado*> listaEstofados;
     int opcao = -1;
     while (opcao != 6){
-        cout << "\nLISTA DE MERCADORIA\n1 - Colchoes\n2 - Bases\n3 - Sofas\n4 - Poltronas\n5 - Puffs\n6 - Voltar\n>> ";
+        cout << "\nLISTA DE MERCADORIA\n1 - Colchoes || 2 - Bases || 3 - Sofas || 4 - Poltronas || 5 - Puffs || 6 - Voltar\n>> ";
         __fpurge(stdin);
         fflush(stdin);
         cin >> opcao;
@@ -809,8 +814,8 @@ void VMercadoria::getInfo(MColchao* mercadoria)
     cout << "Nome do modelo: " << mercadoria->getNome() << endl;
     cout << "Fabricante: " << mercadoria->getFabricante() << endl;
     cout << "Cor: " << mercadoria->getCor() << endl;
-    cout << "Altura: " << mercadoria->getAltura() << endl;
     cout << "Largura: " << mercadoria->getLargura() << endl;
+    cout << "Altura: " << mercadoria->getAltura() << endl;
     cout << "Profundidade: " << mercadoria->getProfundidade() << endl;
     cout << "Preco: " << mercadoria->getPreco() << endl;
     cout << "Tamanho: " << mercadoria->getTamanho() << endl;
@@ -821,8 +826,8 @@ void VMercadoria::getInfo(MEstofado* mercadoria)
     cout << "Nome do modelo: " << mercadoria->getNome() << endl;
     cout << "Fabricante: " << mercadoria->getFabricante() << endl;
     cout << "Cor: " << mercadoria->getCor() << endl;
-    cout << "Altura: " << mercadoria->getAltura() << endl;
     cout << "Largura: " << mercadoria->getLargura() << endl;
+    cout << "Altura: " << mercadoria->getAltura() << endl;
     cout << "Profundidade: " << mercadoria->getProfundidade() << endl;
     cout << "Preco: " << mercadoria->getPreco() << endl;
     cout << "Lugares: " << mercadoria->getLugares() << endl;
