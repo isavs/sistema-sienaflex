@@ -1,15 +1,17 @@
 #pragma once
 #include <iostream>
 using namespace std;
-#include "GerenciadorDePessoal.h"
+#include "./View/VMercadoria.h"
+#include "./View/VFuncionario.h"
 
 class Menu
 {
 private:
-    GerenciadorDePessoal* gerenciadorDePessoal;
+    VMercadoria* vMercadoria;
+    VFuncionario* vFuncionario;
 
 public:
     Menu();
     ~Menu();
-    void menuPessoal();
+    void menu();
 };

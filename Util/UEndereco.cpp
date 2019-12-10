@@ -84,3 +84,8 @@ const string UEndereco::getPais()
 {
     return pais;
 }
+
+const string UEndereco::getComplemento()
+{
+    return complemento;
+}

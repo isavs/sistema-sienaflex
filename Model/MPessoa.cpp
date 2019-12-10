@@ -57,7 +57,7 @@ const string MPessoa::getTelefone()
     return telefone;
 }
 
-const UEndereco MPessoa::getEndereco()
+UEndereco MPessoa::getEndereco()
 {
     return endereco;
 }

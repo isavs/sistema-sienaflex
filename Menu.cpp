@@ -26,7 +26,7 @@ void Menu::menu()
             }
             case 2:
             {
-                //gerenciadorDePessoal->pesquisarFuncionario();
+                vFuncionario->view();
                 break;
             }
             case 3:

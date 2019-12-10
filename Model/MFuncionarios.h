@@ -18,5 +18,6 @@ public:
     void operator = (const MFuncionarios&) = delete;
 
     bool setFuncionario(MFuncionario* funcionario);
+    bool removeFuncionario(MFuncionario* funcionario);
     list<MFuncionario*> getListaFuncionarios();
 };
