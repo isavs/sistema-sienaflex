@@ -127,6 +127,10 @@ const float MMercadoria::getCusto()
 {
     return custo;
 }
+const bool MMercadoria::getStatus()
+{
+    return vendida;
+}
 
 const float MMercadoria::getPreco()
 {

@@ -16,7 +16,7 @@ private:
 
 public:
     UEndereco();
-    //UEndereco(char* cep, char* rua, int numero, char* bairro, char* cidade, char* estado, char* pais, char* complemento);
+    UEndereco(char* cep, char* rua, char* numero, char* bairro, char* cidade, char* estado, char* pais, char* complemento);
     ~UEndereco();
     void setCep(string cep);
     void setRua(string rua);
@@ -33,4 +33,5 @@ public:
     const string getCidade();
     const string getEstado();
     const string getPais();
+    const string getComplemento();
 };

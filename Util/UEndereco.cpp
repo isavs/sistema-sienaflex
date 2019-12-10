@@ -5,6 +5,18 @@ UEndereco::UEndereco()
 
 }
 
+UEndereco::UEndereco(char* cep, char* rua, char* numero, char* bairro, char* cidade, char* estado, char* pais, char* complemento)
+{
+    this->cep = cep;
+    this->rua = rua;
+    this->numero = numero;
+    this->bairro = bairro;
+    this->cidade = cidade;
+    this->estado = estado;
+    this->pais = pais;
+    this->complemento = complemento;
+}
+
 UEndereco::~UEndereco()
 {
 
@@ -83,4 +95,8 @@ const string UEndereco::getEstado()
 const string UEndereco::getPais()
 {
     return pais;
+}
+const string UEndereco::getComplemento()
+{
+    return complemento;
 }

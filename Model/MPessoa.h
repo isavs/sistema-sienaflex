@@ -15,6 +15,7 @@ public:
     MPessoa();
     MPessoa(string nome);
     MPessoa(string nome, string cpf, string telefone, UEndereco endereco);
+    MPessoa(char* nome, char* cpf, char* telefone, UEndereco endereco);
     ~MPessoa();
     void setNome(string nome);
     void setCpf(string cpf);
