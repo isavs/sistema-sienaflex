@@ -13,7 +13,9 @@ private:
       
     struct sEstofado { 
         int id,
-            lugares;
+            lugares,
+            ds, ms, as,
+            de, me, ae;
         char nome[30],
             fabricante[30],
             cor[30];

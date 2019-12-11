@@ -1,7 +1,10 @@
 #include "MMercadoria.h"
-
+#include <time.h>
 MMercadoria::MMercadoria()
 {
+    time_t myTime;
+    myTime = time(NULL);
+    struct tm tm = *localtime(&myTime);
     id = 0;
     nome = "";
     fabricante = "";
@@ -9,11 +12,17 @@ MMercadoria::MMercadoria()
     custo = 0.0;
     preco = 0.0;
     vendida = false;
+    saida.setData(0,0,0);
+    entrada.setData(tm.tm_mday, tm.tm_mon+1, tm.tm_year+1900);
 }
 
 
 MMercadoria::MMercadoria(int id, string nome, string fabricante, string cor, float largura, float altura, float profundidade, float custo, float preco)
 {
+    time_t myTime;
+    myTime = time(NULL);
+    struct tm tm = *localtime(&myTime);
+
     this->id = id;
     this->nome = nome;
     this->fabricante = fabricante;
@@ -24,6 +33,8 @@ MMercadoria::MMercadoria(int id, string nome, string fabricante, string cor, flo
     this->custo = custo;
     this->preco = preco;
     this->vendida = false;
+
+    entrada.setData(tm.tm_mday, tm.tm_mon+1, tm.tm_year+1900);
 }
 
 MMercadoria::~MMercadoria()
@@ -135,4 +146,21 @@ const bool MMercadoria::getStatus()
 const float MMercadoria::getPreco()
 {
     return preco;
+}
+
+void  MMercadoria::setDataEntrada(int d, int m, int a)
+{
+    entrada.setData(d,m, a);
+}
+void  MMercadoria::setDataSaida(int d, int m, int a)
+{
+    saida.setData(d,m, a);
+}
+UData  MMercadoria::getDataEntrada()
+{
+    return entrada;
+}
+UData  MMercadoria::getDataSaida()
+{
+    return saida;
 }

@@ -4,7 +4,8 @@ int CFuncionarios::ids = 0;
 
 CFuncionarios::CFuncionarios()
 {
-
+    MFuncionarios& mFuncionarios = MFuncionarios::getMFuncionarios();
+    ids = mFuncionarios.getListaFuncionarios().size();
 }
 
 CFuncionarios::~CFuncionarios()

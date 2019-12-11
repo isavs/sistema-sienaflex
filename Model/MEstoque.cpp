@@ -3,6 +3,7 @@
 
 MEstoque::MEstoque()
 {
+    
     listaColchoes = ccsv.getListaColchoes("BDColchoes.csv");
     listaBases = ccsv.getListaColchoes("BDBases.csv");
     listaSofas = ecsv.getListaEstofados("BDSofas.csv");
@@ -32,8 +33,8 @@ void MEstoque::salvarEstoque()
     string dataCSV = data + ".csv";
 
     for (auto i = listaColchoes.begin(); i != listaColchoes.end(); i++){
-        string BDcolcsv = "BDColchoes_" + dataBin;
-        string BDcolbin = "BDColchoes_" + dataCSV;
+        string BDcolcsv = "BDColchoes_" + dataCSV;
+        string BDcolbin = "BDColchoes_" + dataBin;
         remove("BDColchoes.dat");
         remove("BDColchoes.csv");
         cbin.gravar("BDColchoes.dat", (*i));
@@ -42,8 +43,8 @@ void MEstoque::salvarEstoque()
         ccsv.gravar(&BDcolcsv[0], (*i));
     }
     for (auto i = listaBases.begin(); i != listaBases.end(); i++){
-        string BDbascsv = "BDBases_" + dataBin;
-        string BDbasbin = "BDBases_" + dataCSV;
+        string BDbascsv = "BDBases_" + dataCSV;
+        string BDbasbin = "BDBases_" + dataBin;
         remove("BDBases.dat");
         remove("BDBases.csv");
         cbin.gravar("BDBases.dat", (*i));
@@ -52,8 +53,8 @@ void MEstoque::salvarEstoque()
         ccsv.gravar(&BDbascsv[0], (*i));
     }
     for (auto i = listaSofas.begin(); i != listaSofas.end(); i++){
-        string BDsofcsv = "BDSofas_" + dataBin;
-        string BDsofbin = "BDSofas_" + dataCSV;
+        string BDsofcsv = "BDSofas_" + dataCSV;
+        string BDsofbin = "BDSofas_" + dataBin;
         remove("BDSofas.dat");
         remove("BDSofas.csv");
         ebin.gravar("BDSofas.dat", (*i));
@@ -62,8 +63,8 @@ void MEstoque::salvarEstoque()
         ecsv.gravar(&BDsofcsv[0], (*i));
     }
     for (auto i = listaPuffs.begin(); i != listaPuffs.end(); i++){
-        string BDpufcsv = "BDPuffs_" + dataBin;
-        string BDpufbin = "BDPuffs_" + dataCSV;
+        string BDpufcsv = "BDPuffs_" + dataCSV;
+        string BDpufbin = "BDPuffs_" + dataBin;
         remove("BDPuffs.dat");
         remove("BDPuffs.csv");
         ebin.gravar("BDPuffs.dat", (*i));
@@ -72,8 +73,8 @@ void MEstoque::salvarEstoque()
         ecsv.gravar(&BDpufcsv[0], (*i));
     }
     for (auto i = listaPoltronas.begin(); i != listaPoltronas.end(); i++){
-        string BDpolcsv = "BDPoltronas_" + dataBin;
-        string BDpolbin = "BDPoltronas_" + dataCSV;
+        string BDpolcsv = "BDPoltronas_" + dataCSV;
+        string BDpolbin = "BDPoltronas_" + dataBin;
         remove("BDPoltronas.dat");
         remove("BDPoltronas.csv");
         ebin.gravar("BDPoltronas.dat", (*i));
@@ -131,7 +132,12 @@ bool MEstoque::setPuff(MEstofado* puff)
 
 bool MEstoque::removerColchao(MColchao* colchao)
 {
+    time_t myTime;
+    myTime = time(NULL);
+    struct tm tm = *localtime(&myTime);
     if (colchao != NULL){
+        colchao->setDataSaida(tm.tm_mday, tm.tm_mon+1, tm.tm_yday+1900);
+        ccsv.gravar("BDColchaoVendidas.csv", colchao);
         listaColchoes.remove(colchao);
         return true;
     }
@@ -140,7 +146,12 @@ bool MEstoque::removerColchao(MColchao* colchao)
 
 bool MEstoque::removerBase(MColchao* base)
 {
+    time_t myTime;
+    myTime = time(NULL);
+    struct tm tm = *localtime(&myTime);
     if (base != NULL){
+        base->setDataSaida(tm.tm_mday, tm.tm_mon+1, tm.tm_yday+1900);
+        ccsv.gravar("BDColchaoVendidas.csv", base);
         listaBases.remove(base);
         return true;
     }
@@ -149,7 +160,12 @@ bool MEstoque::removerBase(MColchao* base)
 
 bool MEstoque::removerSofa(MEstofado* sofa)
 {
+    time_t myTime;
+    myTime = time(NULL);
+    struct tm tm = *localtime(&myTime);
     if (sofa != NULL){
+        sofa->setDataSaida(tm.tm_mday, tm.tm_mon+1, tm.tm_yday+1900);
+        ecsv.gravar("BDEstofadoVendidas.csv", sofa);
         listaSofas.remove(sofa);
         return true;
     }
@@ -158,7 +174,12 @@ bool MEstoque::removerSofa(MEstofado* sofa)
 
 bool MEstoque::removerPoltrona(MEstofado* poltrona)
 {
+    time_t myTime;
+    myTime = time(NULL);
+    struct tm tm = *localtime(&myTime);
     if (poltrona != NULL){
+        poltrona->setDataSaida(tm.tm_mday, tm.tm_mon+1, tm.tm_yday+1900);
+        ecsv.gravar("BDEstofadoVendidas.csv", poltrona);
         listaSofas.remove(poltrona);
         return true;
     }
@@ -167,7 +188,12 @@ bool MEstoque::removerPoltrona(MEstofado* poltrona)
 
 bool MEstoque::removerPuff(MEstofado* puff)
 {
+    time_t myTime;
+    myTime = time(NULL);
+    struct tm tm = *localtime(&myTime);
     if (puff != NULL){
+        puff->setDataSaida(tm.tm_mday, tm.tm_mon+1, tm.tm_yday+1900);
+        ecsv.gravar("BDEstofadoVendidas.csv", puff);
         listaPuffs.remove(puff);
         return true;
     }

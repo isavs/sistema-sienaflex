@@ -4,7 +4,12 @@ int CMercadoria::ids = 0;
 
 CMercadoria::CMercadoria()
 {
-
+    MEstoque& mEstoque = MEstoque::getMEstoque();
+    ids = mEstoque.getListaColchoes().size() +
+          mEstoque.getListaBases().size() +
+          mEstoque.getListaPoltronas().size() +
+          mEstoque.getListaSofas().size() +
+          mEstoque.getListaPuffs().size();
 }
 
 CMercadoria::~CMercadoria()

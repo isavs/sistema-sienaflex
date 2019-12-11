@@ -37,6 +37,12 @@ bool EstofadoDAObin::gravar(const char* nome, MEstofado* estofado) {
     sEstofado m;
 
     m.id = estofado->getId();
+    m.ds = estofado->getDataSaida().getDia();
+    m.ms = estofado->getDataSaida().getMes();
+    m.as = estofado->getDataSaida().getAno();
+    m.de = estofado->getDataEntrada().getDia();
+    m.me = estofado->getDataEntrada().getDia();
+    m.ae = estofado->getDataEntrada().getDia();
     strcpy(m.nome, (estofado->getNome()).c_str());
     strcpy(m.fabricante, (estofado->getFabricante()).c_str());
     strcpy(m.cor, (estofado->getCor()).c_str());
@@ -59,6 +65,8 @@ list<MEstofado*> EstofadoDAObin::getListaEstofados(const char* nome) {
         while(arquivo && !arquivo.eof()) {
             arquivo.read((char *)(&m), sizeof(sEstofado));
             MEstofado* estofado = new MEstofado(m.id, m.nome, m.fabricante, m.cor, m.largura, m.altura, m.profundidade, m.custo, m.preco, m.lugares);
+            estofado->setDataEntrada(m.de,m.me,m.ae);
+            estofado->setDataSaida(m.ds,m.ms,m.as);
             lista.push_back(estofado);
         }        
     }

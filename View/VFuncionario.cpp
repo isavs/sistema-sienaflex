@@ -2,7 +2,6 @@
 
 VFuncionario::VFuncionario()
 {
-
 }
 
 VFuncionario::~VFuncionario()
@@ -14,10 +13,12 @@ void VFuncionario::view()
 {
     int opcao = -1;
     while (opcao != 6){
-        cout << "\nPESSOAL\n1 - Cadastrar novo funcionario || 2 - Atualizar dados de funcionario || 3 - Pesquisar funcionario || 4 - Desligar funcionario || 5 - Lista de funcionarios || 6 - Voltar\n>> ";
+        cout << "\n==================== PESSOAL ====================" << endl;
+        cout << "\n1 - Cadastrar novo funcionario\t|\t2 - Atualizar dados de funcionario\t|\t3 - Pesquisar funcionario\n4 - Desligar funcionario\t|\t5 - Lista de funcionarios\t\t|\t6 - Voltar\n>> ";
         //__fpurge(stdin);
         fflush(stdin);
         cin >> opcao;
+        cout << endl;
         switch (opcao)
         {
             case 1:
@@ -95,8 +96,49 @@ void VFuncionario::cadastrar()
     //__fpurge(stdin);
     fflush(stdin);
     cin >> salarioHora;
+    cout << "Cep: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, cep);
+    cout << "Rua: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, rua);
+    cout << "Bairro: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, bairro);
+    cout << "Numero: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, numero);
+    cout << "Cidade: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, cidade);
+    cout << "Estado: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, estado);
+    cout << "Pais: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, pais);
+    cout << "Complemento: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, complemento);
+    cout << endl;
+    endereco.setCep(cep);
+    endereco.setRua(rua);
+    endereco.setNumero(numero);
+    endereco.setBairro(bairro);
+    endereco.setCidade(cidade);
+    endereco.setEstado(estado);
+    endereco.setPais(pais);
+    endereco.setComplemento(complemento);
     if (!cFuncionarios.adicionar(nome, cpf, telefone, endereco, cargo, salarioHora))
-        cout << "Erro ao cadastrar" << endl;
+        cout << "!!! Erro ao cadastrar !!!" << endl;
 }
 
 void VFuncionario::pesquisar()
@@ -121,17 +163,19 @@ void VFuncionario::pesquisar()
     if (id != -1 || cpf != ""){
         funcionario = cFuncionarios.pesquisar(id, cpf);
         if (funcionario != NULL){
-            getDados(funcionario);
+            imprimirInformacoes(funcionario);
         }
         else{
-            cout << "\nFuncionario nao encontrado." << endl;
+            cout << "\n!!! Funcionario nao encontrado !!!" << endl;
         }
     }
     else if (nome != ""){
+        cout << "Funcionarios encontrados" << endl;
+        cout << endl;
         list<MFuncionario*> lista = cFuncionarios.pesquisarNomes(nome);
         list<MFuncionario*>::iterator it;
         for (it = lista.begin(); it != lista.end(); ++it){
-            getDados(*it);
+            imprimirInformacoes(*it);
             cout << endl;
         }
     }
@@ -163,7 +207,7 @@ void VFuncionario::atualizar()
     cin >> id;
     funcionario = cFuncionarios.pesquisar(id, cpf);
     if (funcionario == NULL){
-        cout << "Funcionario nao cadastrado" << endl;
+        cout << "Funcionario nao encontrado" << endl;
         return;
     }
     cout << "Nome: ";
@@ -186,6 +230,47 @@ void VFuncionario::atualizar()
     //__fpurge(stdin);
     fflush(stdin);
     cin >> salario;
+    cout << "Cep: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, cep);
+    cout << "Rua: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, rua);
+    cout << "Bairro: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, bairro);
+    cout << "Numero: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, numero);
+    cout << "Cidade: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, cidade);
+    cout << "Estado: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, estado);
+    cout << "Pais: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, pais);
+    cout << "Complemento: ";
+    //__fpurge(stdin);
+    fflush(stdin);
+    getline(cin, complemento);
+    cout << endl;
+    endereco.setCep(cep);
+    endereco.setRua(rua);
+    endereco.setNumero(numero);
+    endereco.setBairro(bairro);
+    endereco.setCidade(cidade);
+    endereco.setEstado(estado);
+    endereco.setPais(pais);
+    endereco.setComplemento(complemento);
     cFuncionarios.atualizar(funcionario, nome, cpf, telefone, endereco, cargo, salario);
 }
 
@@ -202,10 +287,12 @@ void VFuncionario::desligar()
     //__fpurge(stdin);
     fflush(stdin);
     cin >> id;
+    cout << endl;
     if (cFuncionarios.remover(nome, id))
         cout << "Funcionario desligado." << endl;
     else
-        cout << "Funcionario nao encontrado." << endl;
+        cout << "!!! Funcionario nao encontrado !!!" << endl;
+    cout << endl;
 }
 
 void VFuncionario::listar()
@@ -213,8 +300,10 @@ void VFuncionario::listar()
     CFuncionarios& cFuncionarios = CFuncionarios::getCFuncionarios();
     list<MFuncionario*> lista = cFuncionarios.listar();
     list<MFuncionario*>::iterator it;
+    cout << "Lista de funcionarios" << endl;
+    cout << endl;
     for (it = lista.begin(); it != lista.end(); ++it){
-        getDados(*it);
+        imprimirInformacoes(*it);
         cout << endl;
     }
 }
@@ -225,17 +314,20 @@ void VFuncionario::salvar()
     cFuncionarios.salvarFuncionarios();
 }
 
-void VFuncionario::getDados(MFuncionario* funcionario)
+void VFuncionario::imprimirInformacoes(MFuncionario* funcionario)
 {
-    cout << "Funcionario com id " << funcionario->getId() << endl;
-    cout << funcionario->getNome() << "\t" << funcionario->getCargo() << "\tCPF "
-         << funcionario->getCpf() << "Telefone: " << funcionario->getTelefone() << endl;
-    cout << "Endereco: " << funcionario->getEndereco().getRua() << ", "
-         << funcionario->getEndereco().getNumero() << " - "
-         << funcionario->getEndereco().getBairro() << " - "
-         << funcionario->getEndereco().getCidade() << " - "
-         << funcionario->getEndereco().getEstado() << " - "
-         << funcionario->getEndereco().getPais() << " - "
-         << funcionario->getEndereco().getCep() << " - "
-         << funcionario->getEndereco().getComplemento() << endl;
+    cout << "Id: " << funcionario->getId() << endl;
+    cout << "Nome: " << funcionario->getNome() << endl;
+    cout << "Cpf: " << funcionario->getCpf() << endl;
+    cout << "Telefone: " << funcionario->getTelefone() << endl;
+    cout << "Cargo: " << funcionario->getCargo() << endl;
+    cout << "Endereco" << endl;
+    cout << "Rua: " << funcionario->getEndereco().getRua()
+         << ", " << funcionario->getEndereco().getNumero() << endl;
+    cout << "Bairro: " << funcionario->getEndereco().getBairro() << endl;
+    cout << "Cidade: " << funcionario->getEndereco().getCidade() << endl;
+    cout << "Estado: " << funcionario->getEndereco().getEstado() << endl;
+    cout << "Pais: " << funcionario->getEndereco().getPais() << endl;
+    cout << "Cep: " << funcionario->getEndereco().getCep() << endl;
+    cout << "Complemento: " << funcionario->getEndereco().getComplemento() << endl;
 }
