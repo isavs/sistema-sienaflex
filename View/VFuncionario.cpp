@@ -14,6 +14,7 @@ void VFuncionario::view()
 {
     int opcao = -1;
     while (opcao != 6){
+        system("clear");
         cout << "\n==================== PESSOAL ====================" << endl;
         cout << "\n1 - Cadastrar novo funcionario\t|\t2 - Atualizar dados de funcionario\t|\t3 - Pesquisar funcionario\n4 - Desligar funcionario\t|\t5 - Lista de funcionarios\t\t|\t6 - Voltar\n>> ";
         __fpurge(stdin);
@@ -140,6 +141,10 @@ void VFuncionario::cadastrar()
     endereco.setComplemento(complemento);
     if (!cFuncionarios.adicionar(nome, cpf, telefone, endereco, cargo, salarioHora))
         cout << "!!! Erro ao cadastrar !!!" << endl;
+    cout << "Funcionario cadastrado." << endl;
+    __fpurge(stdin);
+    fflush(stdin);
+    getchar();
 }
 
 void VFuncionario::pesquisar()
@@ -180,6 +185,9 @@ void VFuncionario::pesquisar()
             cout << endl;
         }
     }
+    __fpurge(stdin);
+    fflush(stdin);
+    getchar();
 }
 
 void VFuncionario::atualizar()

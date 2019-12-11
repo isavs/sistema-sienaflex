@@ -23,7 +23,7 @@ public:
     void setNome(string nome);
     void setFabricante(string fabricante);
     void setCor(string cor);
-    void setMedidas(float largura, float altura, float profundida);
+    void setMedidas(float largura, float altura, float profundidade);
     void setLargura(float largura);
     void setAltura(float altura);
     void setProfundidade(float profundidade);

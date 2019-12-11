@@ -51,7 +51,7 @@ void MMercadoria::setCor(string cor)
     this->cor = cor;
 }
 
-void MMercadoria::setMedidas(float largura, float altura, float profundida)
+void MMercadoria::setMedidas(float largura, float altura, float profundidade)
 {
     this->largura = largura;
     this->altura = altura;
