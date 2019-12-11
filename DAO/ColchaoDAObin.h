@@ -33,7 +33,7 @@ public:
     ~ColchaoDAObin();
     bool abrir(const char* nome, std::ios_base::openmode modo);
     bool gravar(const char* nome, MColchao* colchao);
-    list<MColchao*> getListaColchaos(const char* nome);
+    list<MColchao*> getListaColchoes(const char* nome);
     void fechar();
 
 };

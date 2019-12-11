@@ -23,4 +23,6 @@ public:
     MFuncionario* pesquisar(const int id, const string cpf);
     list<MFuncionario*> pesquisarNomes(const string nome);
     list<MFuncionario*> listar();
+
+    void salvarFuncionarios();
 };

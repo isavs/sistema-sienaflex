@@ -12,9 +12,7 @@ EstofadoDAObin::~EstofadoDAObin() {
 
 bool EstofadoDAObin::gravar(sEstofado estofado, const char* nome) {
 
-    printf("Chamou gravar\n");
     if(abrir(nome, ios::app)){
-            printf("No if gravar\n");
             arquivo.write((const char*)(&estofado), sizeof(sEstofado));
             fechar();
             return true;
@@ -28,7 +26,6 @@ bool EstofadoDAObin::gravar(sEstofado estofado, const char* nome) {
 bool EstofadoDAObin::abrir(const char* nome, std::ios_base::openmode modo){
 
     arquivo.open(nome, modo);
-    printf("chamou abrir\n");
     if(!arquivo.is_open() || !arquivo.good()) {
       return false;
     }

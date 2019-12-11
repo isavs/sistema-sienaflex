@@ -832,3 +832,9 @@ void VMercadoria::getInfo(MEstofado* mercadoria)
     cout << "Preco: " << mercadoria->getPreco() << endl;
     cout << "Lugares: " << mercadoria->getLugares() << endl;
 }
+
+void VMercadoria::salvar()
+{
+    CEstoque& cEstoque = CEstoque::getCEstoque();
+    cEstoque.salvarEstoque();
+}

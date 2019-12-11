@@ -21,7 +21,7 @@ public:
     ColchaoDAOcsv();
     ~ColchaoDAOcsv();
     bool gravar(const char* nome, MColchao* colchao);
-    list<MColchao*> getListaColchaos(const char* nome);
+    list<MColchao*> getListaColchoes(const char* nome);
     void fechar();
 
 };

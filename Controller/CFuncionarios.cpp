@@ -99,3 +99,8 @@ list<MFuncionario*> CFuncionarios::listar()
     MFuncionarios& mFuncionarios = MFuncionarios::getMFuncionarios();
     return mFuncionarios.getListaFuncionarios();
 }
+void CFuncionarios::salvarFuncionarios()
+{
+    MFuncionarios& mFuncionarios = MFuncionarios::getMFuncionarios();
+    mFuncionarios.salvarFuncionarios();
+}

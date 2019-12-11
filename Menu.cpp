@@ -35,6 +35,8 @@ void Menu::menu()
             }
             case 4:
             {
+                 vMercadoria->salvar();
+                 vFuncionario->salvar();
                 break;
             }
             default:

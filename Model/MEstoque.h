@@ -27,7 +27,7 @@ private:
 private:
     MEstoque();
     ~MEstoque();
-    void salvarEstoque();
+    
 public:
     static MEstoque &getMEstoque();
     MEstoque(const MEstoque&) = delete;
@@ -48,4 +48,5 @@ public:
     list<MEstofado*> getListaSofas();
     list<MEstofado*> getListaPoltronas();
     list<MEstofado*> getListaPuffs();
+    void salvarEstoque();
 };

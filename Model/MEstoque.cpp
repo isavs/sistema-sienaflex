@@ -3,12 +3,11 @@
 
 MEstoque::MEstoque()
 {
-    listaColchoes = ccsv.getListaColchaos("../BDbin/BDColchoes.csv");
-    listaBases = ccsv.getListaColchaos("../BDbin/BDBases.csv");
-
-    listaSofas = ecsv.getListaEstofados("../BDbin/BDSofas");
-    listaPuffs = ecsv.getListaEstofados("../BDbin/BDPuffs");
-    listaPoltronas = ecsv.getListaEstofados("../BDbin/BDPoltronas");
+    listaColchoes = ccsv.getListaColchoes("BDColchoes.csv");
+    listaBases = ccsv.getListaColchoes("BDBases.csv");
+    listaSofas = ecsv.getListaEstofados("BDSofas.csv");
+    listaPuffs = ecsv.getListaEstofados("BDPuffs.csv");
+    listaPoltronas = ecsv.getListaEstofados("BDPoltronas.csv");
 
 }
 
@@ -33,44 +32,54 @@ void MEstoque::salvarEstoque()
     string dataCSV = data + ".csv";
 
     for (auto i = listaColchoes.begin(); i != listaColchoes.end(); i++){
-        string BDcolcsv = "../BDcsv/BDColchoes_" + dataBin;
-        string BDcolbin = "../BDbin/BDColchoes_" + dataCSV;
-        cbin.gravar("../BDbin/BDColchoes.dat", (*i));
-        ccsv.gravar("../BDcsv/BDColchoes.csv", (*i));
+        string BDcolcsv = "BDColchoes_" + dataBin;
+        string BDcolbin = "BDColchoes_" + dataCSV;
+        remove("BDColchoes.dat");
+        remove("BDColchoes.csv");
+        cbin.gravar("BDColchoes.dat", (*i));
+        ccsv.gravar("BDColchoes.csv", (*i));
         cbin.gravar(&BDcolbin[0], (*i));
-        ccsv.gravar(&BDcolbin[0], (*i));
+        ccsv.gravar(&BDcolcsv[0], (*i));
     }
     for (auto i = listaBases.begin(); i != listaBases.end(); i++){
-        string BDbascsv = "../BDcsv/BDBases_" + dataBin;
-        string BDbasbin = "../BDbin/BDBases_" + dataCSV;
-        cbin.gravar("../BDbin/BDBases.dat", (*i));
-        ccsv.gravar("../BDcsv/BDBases.csv", (*i));
+        string BDbascsv = "BDBases_" + dataBin;
+        string BDbasbin = "BDBases_" + dataCSV;
+        remove("BDBases.dat");
+        remove("BDCBases.csv");
+        cbin.gravar("BDBases.dat", (*i));
+        ccsv.gravar("BDBases.csv", (*i));
         cbin.gravar(&BDbasbin[0], (*i));
-        ccsv.gravar(&BDbasbin[0], (*i));
+        ccsv.gravar(&BDbascsv[0], (*i));
     }
     for (auto i = listaSofas.begin(); i != listaSofas.end(); i++){
-        string BDsofcsv = "../BDcsv/BDSofas_" + dataBin;
-        string BDsofbin = "../BDbin/BDSofas_" + dataCSV;
-        ebin.gravar("../BDbin/BDSofas.dat", (*i));
-        ecsv.gravar("../BDcsv/BDSofas.csv", (*i));
+        string BDsofcsv = "BDSofas_" + dataBin;
+        string BDsofbin = "BDSofas_" + dataCSV;
+        remove("BDSofas.dat");
+        remove("BDCSofas.csv");
+        ebin.gravar("BDSofas.dat", (*i));
+        ecsv.gravar("BDSofas.csv", (*i));
         ebin.gravar(&BDsofbin[0], (*i));
-        ecsv.gravar(&BDsofbin[0], (*i));
+        ecsv.gravar(&BDsofcsv[0], (*i));
     }
     for (auto i = listaPuffs.begin(); i != listaPuffs.end(); i++){
-        string BDpufcsv = "../BDcsv/BDPuffs_" + dataBin;
-        string BDpufbin = "../BDbin/BDPuffs_" + dataCSV;
-        ebin.gravar("../BDbin/BDPuffs.dat", (*i));
-        ecsv.gravar("../BDcsv/BDPuffs.csv", (*i));
+        string BDpufcsv = "BDPuffs_" + dataBin;
+        string BDpufbin = "BDPuffs_" + dataCSV;
+        remove("BDPuffs.dat");
+        remove("BDPuffs.csv");
+        ebin.gravar("BDPuffs.dat", (*i));
+        ecsv.gravar("BDPuffs.csv", (*i));
         ebin.gravar(&BDpufbin[0], (*i));
-        ecsv.gravar(&BDpufbin[0], (*i));
+        ecsv.gravar(&BDpufcsv[0], (*i));
     }
     for (auto i = listaPoltronas.begin(); i != listaPoltronas.end(); i++){
-        string BDpolcsv = "../BDcsv/BDPoltronas_" + dataBin;
-        string BDpolbin = "../BDbin/BDPoltronas_" + dataCSV;
-        ebin.gravar("../BDbin/BDPoltronas.dat", (*i));
-        ecsv.gravar("../BDcsv/BDPoltronas.csv", (*i));
+        string BDpolcsv = "BDPoltronas_" + dataBin;
+        string BDpolbin = "BDPoltronas_" + dataCSV;
+        remove("BDPoltronas.dat");
+        remove("BDCPoltronas.csv");
+        ebin.gravar("BDPoltronas.dat", (*i));
+        ecsv.gravar("BDPoltronas.csv", (*i));
         ebin.gravar(&BDpolbin[0], (*i));
-        ecsv.gravar(&BDpolbin[0], (*i));
+        ecsv.gravar(&BDpolcsv[0], (*i));
     }
 
 }

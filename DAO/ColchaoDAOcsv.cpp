@@ -89,7 +89,7 @@ bool ColchaoDAOcsv::gravar(const char* nome, MColchao* colchao) {
     return gravar(nome, s);
 }
 
-list<MColchao*> ColchaoDAOcsv::getListaColchaos(const char* nome) {
+list<MColchao*> ColchaoDAOcsv::getListaColchoes(const char* nome) {
     string arquivo = ler(nome);
     list<MColchao*> lista;
     while(!arquivo.empty()) {

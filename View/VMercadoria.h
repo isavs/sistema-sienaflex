@@ -19,5 +19,6 @@ public:
     void getInfo(MEstofado* mercadoria);
     void pesquisarId();
     void pesquisarCaracteristicas();
+    void salvar();
 };
 

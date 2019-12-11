@@ -379,3 +379,8 @@ bool CEstoque::removerPuff(int id)
     MEstoque& mEstoque = MEstoque::getMEstoque();
     return mEstoque.removerPuff(pesquisarIdEstofado(id, 5));
 }
+void CEstoque::salvarEstoque()
+{
+    MEstoque& mEstoque = MEstoque::getMEstoque();
+    mEstoque.salvarEstoque();
+}

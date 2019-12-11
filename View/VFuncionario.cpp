@@ -219,6 +219,12 @@ void VFuncionario::listar()
     }
 }
 
+void VFuncionario::salvar()
+{
+    CFuncionarios& cFuncionarios = CFuncionarios::getCFuncionarios();
+    cFuncionarios.salvarFuncionarios();
+}
+
 void VFuncionario::getDados(MFuncionario* funcionario)
 {
     cout << "Funcionario com id " << funcionario->getId() << endl;

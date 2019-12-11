@@ -12,9 +12,7 @@ ColchaoDAObin::~ColchaoDAObin() {
 
 bool ColchaoDAObin::gravar(sColchao colchao, const char* nome) {
 
-    printf("Chamou gravar\n");
     if(abrir(nome, ios::app)){
-            printf("No if gravar\n");
             arquivo.write((const char*)(&colchao), sizeof(sColchao));
             fechar();
             return true;
@@ -28,7 +26,6 @@ bool ColchaoDAObin::gravar(sColchao colchao, const char* nome) {
 bool ColchaoDAObin::abrir(const char* nome, std::ios_base::openmode modo){
 
     arquivo.open(nome, modo);
-    printf("chamou abrir\n");
     if(!arquivo.is_open() || !arquivo.good()) {
       return false;
     }
@@ -54,7 +51,7 @@ bool ColchaoDAObin::gravar(const char* nome, MColchao* colchao) {
     return gravar(m, nome);
 }
 
-list<MColchao*> ColchaoDAObin::getListaColchaos(const char* nome) {
+list<MColchao*> ColchaoDAObin::getListaColchoes(const char* nome) {
     list<MColchao*> lista;
     sColchao m;
 
