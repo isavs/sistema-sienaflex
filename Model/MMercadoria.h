@@ -39,5 +39,6 @@ public:
     const float getProfundidade();
     const float getCusto();
     const float getPreco();
+    const bool getStatus();
     const MMercadoria* getDados();
 };

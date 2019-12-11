@@ -49,4 +49,6 @@ public:
     bool removerSofa(int id);
     bool removerPoltrona(int id);
     bool removerPuff(int id);
+
+    void salvarEstoque();
 };

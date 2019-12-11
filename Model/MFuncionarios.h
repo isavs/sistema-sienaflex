@@ -1,12 +1,16 @@
 #pragma once
 #include <list>
 #include "../Model/MFuncionario.h"
+#include "../DAO/FuncionarioDAObin.h"
+#include "../DAO/FuncionarioDAOcsv.h"
 
 class MFuncionarios
 {
 private:
     static MFuncionarios* mFuncionarios;
     list<MFuncionario*> listaFuncionarios;
+    FuncionarioDAObin fbin;
+    FuncionarioDAOcsv fcsv;
 
 private:
     MFuncionarios();
@@ -20,4 +24,6 @@ public:
     bool setFuncionario(MFuncionario* funcionario);
     bool removeFuncionario(MFuncionario* funcionario);
     list<MFuncionario*> getListaFuncionarios();
+
+    void salvarFuncionarios();
 };

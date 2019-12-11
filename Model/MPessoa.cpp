@@ -21,6 +21,13 @@ MPessoa::MPessoa(string nome, string cpf, string telefone, UEndereco endereco)
     this->telefone = telefone;
     this->endereco = endereco;
 }
+MPessoa::MPessoa(char* nome, char* cpf, char* telefone, UEndereco endereco)
+{
+    this->nome = nome;
+    this->cpf = cpf;
+    this->telefone = telefone;
+    this->endereco = endereco;
+}
 
 MPessoa::~MPessoa()
 {

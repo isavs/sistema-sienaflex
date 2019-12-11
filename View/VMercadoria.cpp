@@ -785,7 +785,9 @@ void VMercadoria::listar()
 {
     CEstoque& cEstoque = CEstoque::getCEstoque();
     list<MColchao*> listaColchoes;
+    listaColchoes.clear();
     list<MEstofado*> listaEstofados;
+    listaEstofados.clear();
     int opcao = -1;
     while (opcao != 6){
         cout << "\n==================== LISTA DE MERCADORIA ====================" << endl;
@@ -810,8 +812,11 @@ void VMercadoria::listar()
             {
                 listaColchoes = cEstoque.listarBases();
                 list<MColchao*>::iterator it;
+                int i = 0;
                 for (it = listaColchoes.begin(); it != listaColchoes.end(); ++it){
                     imprimirInformacoes(*it);
+                    i++;
+                    printf("passou %d\n\n", i);
                     cout << endl;
                 }
                 break;
@@ -882,4 +887,10 @@ void VMercadoria::imprimirInformacoes(MEstofado* mercadoria)
     cout << "Profundidade: " << mercadoria->getProfundidade() << endl;
     cout << "Preco: " << mercadoria->getPreco() << endl;
     cout << "Lugares: " << mercadoria->getLugares() << endl;
+}
+
+void VMercadoria::salvar()
+{
+    CEstoque& cEstoque = CEstoque::getCEstoque();
+    cEstoque.salvarEstoque();
 }

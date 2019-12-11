@@ -19,6 +19,7 @@ void VFuncionario::view()
         __fpurge(stdin);
         fflush(stdin);
         cin >> opcao;
+        cout << endl;
         switch (opcao)
         {
             case 1:
@@ -306,6 +307,12 @@ void VFuncionario::listar()
         imprimirInformacoes(*it);
         cout << endl;
     }
+}
+
+void VFuncionario::salvar()
+{
+    CFuncionarios& cFuncionarios = CFuncionarios::getCFuncionarios();
+    cFuncionarios.salvarFuncionarios();
 }
 
 void VFuncionario::imprimirInformacoes(MFuncionario* funcionario)

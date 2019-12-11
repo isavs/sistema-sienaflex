@@ -16,7 +16,7 @@ private:
 
 public:
     UEndereco();
-    UEndereco(string cep, string rua, string numero, string bairro, string cidade, string estado, string pais, string complemento);
+    UEndereco(char* cep, char* rua, char* numero, char* bairro, char* cidade, char* estado, char* pais, char* complemento);
     ~UEndereco();
     void setCep(string cep);
     void setRua(string rua);

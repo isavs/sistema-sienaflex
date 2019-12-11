@@ -4,7 +4,8 @@ int CFuncionarios::ids = 0;
 
 CFuncionarios::CFuncionarios()
 {
-
+    MFuncionarios& mFuncionarios = MFuncionarios::getMFuncionarios();
+    ids = mFuncionarios.getListaFuncionarios().size();
 }
 
 CFuncionarios::~CFuncionarios()
@@ -98,4 +99,9 @@ list<MFuncionario*> CFuncionarios::listar()
 {
     MFuncionarios& mFuncionarios = MFuncionarios::getMFuncionarios();
     return mFuncionarios.getListaFuncionarios();
+}
+void CFuncionarios::salvarFuncionarios()
+{
+    MFuncionarios& mFuncionarios = MFuncionarios::getMFuncionarios();
+    mFuncionarios.salvarFuncionarios();
 }

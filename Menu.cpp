@@ -12,6 +12,7 @@ Menu::~Menu()
 
 void Menu::menu()
 {
+    system("clear");
     int caso = -1;
     while (caso != 4){
         cout << "\n==================== MENU ====================" << endl;
@@ -36,11 +37,15 @@ void Menu::menu()
             }
             case 4:
             {
+                 vMercadoria->salvar();
+                 vFuncionario->salvar();
                 break;
             }
             default:
             {
                 cout << "\n\t!OPÇÃO INVÁLIDA\n" << endl;
+                __fpurge(stdin);
+                fflush(stdin);
                 getchar();
             }
         }

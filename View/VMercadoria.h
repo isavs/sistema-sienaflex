@@ -19,5 +19,6 @@ public:
     void listar();
     void imprimirInformacoes(MColchao* mercadoria);
     void imprimirInformacoes(MEstofado* mercadoria);
+    void salvar();
 };
 

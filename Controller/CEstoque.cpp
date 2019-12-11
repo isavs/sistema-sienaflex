@@ -68,11 +68,10 @@ bool CEstoque::adicionarPuff(MEstofado* puff)
 
 MColchao* CEstoque::pesquisarColchao(int id)
 {
-    CEstoque& cEstoque = CEstoque::getCEstoque();
-    if (cEstoque.pesquisarIdColchao(id, 1) != NULL)
-        return cEstoque.pesquisarIdColchao(id, 1);
-    if (cEstoque.pesquisarIdColchao(id, 2) != NULL)
-        return cEstoque.pesquisarIdColchao(id, 2);
+    if (CEstoque::pesquisarIdColchao(id, 1) != NULL)
+        return CEstoque::pesquisarIdColchao(id, 1);
+    if (CEstoque::pesquisarIdColchao(id, 2) != NULL)
+        return CEstoque::pesquisarIdColchao(id, 2);
     return NULL;
 }
 
@@ -378,4 +377,9 @@ bool CEstoque::removerPuff(int id)
 {
     MEstoque& mEstoque = MEstoque::getMEstoque();
     return mEstoque.removerPuff(pesquisarIdEstofado(id, 5));
+}
+void CEstoque::salvarEstoque()
+{
+    MEstoque& mEstoque = MEstoque::getMEstoque();
+    mEstoque.salvarEstoque();
 }
