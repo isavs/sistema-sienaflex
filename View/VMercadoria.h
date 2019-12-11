@@ -13,11 +13,11 @@ public:
     void adicionar();
     void atualizar();
     void pesquisar();
-    void remover();
-    void listar();
-    void getInfo(MColchao* mercadoria);
-    void getInfo(MEstofado* mercadoria);
     void pesquisarId();
     void pesquisarCaracteristicas();
+    void remover();
+    void listar();
+    void imprimirInformacoes(MColchao* mercadoria);
+    void imprimirInformacoes(MEstofado* mercadoria);
 };
 

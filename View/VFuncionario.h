@@ -17,5 +17,5 @@ public:
     void atualizar();
     void desligar();
     void listar();
-    void getDados(MFuncionario* funcionario);
+    void imprimirInformacoes(MFuncionario* funcionario);
 };

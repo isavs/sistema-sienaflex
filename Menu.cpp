@@ -14,7 +14,8 @@ void Menu::menu()
 {
     int caso = -1;
     while (caso != 4){
-        cout << "\n1 - Mercadorias || 2 - Funcionarios || 3 - Relatorios || 4 - Sair\n>> ";
+        cout << "\n==================== MENU ====================" << endl;
+        cout << "\n1 - Mercadorias\t|\t2 - Funcionarios\n3 - Relatorios\t|\t4 - Sair\n>> ";
         cin >> caso;
 
         switch(caso)
