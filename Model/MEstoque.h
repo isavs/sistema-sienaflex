@@ -3,12 +3,21 @@
 #include "../Model/MMercadoria.h"
 #include "../Model/MColchao.h"
 #include "../Model/MEstofado.h"
-
+#include "../DAO/ColchaoDAObin.h"
+#include "../DAO/ColchaoDAOcsv.h"
+#include "../DAO/EstofadoDAObin.h"
+#include "../DAO/EstofadoDAOcsv.h"
 class MEstoque
 {
 private:
     //static MEstoque* mEstoque;
     //list< list<MMercadoria*> > listaMercadorias;
+    ColchaoDAObin cbin;
+    ColchaoDAOcsv ccsv;
+
+    EstofadoDAObin ebin;
+    EstofadoDAOcsv ecsv;
+    
     list<MColchao*> listaColchoes;
     list<MColchao*> listaBases;
     list<MEstofado*> listaSofas;
@@ -18,7 +27,7 @@ private:
 private:
     MEstoque();
     ~MEstoque();
-
+    void salvarEstoque();
 public:
     static MEstoque &getMEstoque();
     MEstoque(const MEstoque&) = delete;

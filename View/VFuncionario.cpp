@@ -15,7 +15,7 @@ void VFuncionario::view()
     int opcao = -1;
     while (opcao != 6){
         cout << "\nPESSOAL\n1 - Cadastrar novo funcionario || 2 - Atualizar dados de funcionario || 3 - Pesquisar funcionario || 4 - Desligar funcionario || 5 - Lista de funcionarios || 6 - Voltar\n>> ";
-        __fpurge(stdin);
+        //__fpurge(stdin);
         fflush(stdin);
         cin >> opcao;
         switch (opcao)
@@ -76,23 +76,23 @@ void VFuncionario::cadastrar()
     float salarioHora = 0.0;
     cout << "Dados do funcionario" << endl;
     cout << "Nome: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     getline(cin, nome);
     cout << "Cpf: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     getline(cin, cpf);
     cout << "Telefone: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     getline(cin, telefone);
     cout << "Cargo: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     getline(cin, cargo);
     cout << "Salario (hora): ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     cin >> salarioHora;
     if (!cFuncionarios.adicionar(nome, cpf, telefone, endereco, cargo, salarioHora))
@@ -107,15 +107,15 @@ void VFuncionario::pesquisar()
     string nome = "";
     string cpf = "";
     cout << "Id: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     cin >> id;
     cout << "Nome: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     getline(cin, nome);
     cout << "Cpf: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     getline(cin, cpf);
     if (id != -1 || cpf != ""){
@@ -158,7 +158,7 @@ void VFuncionario::atualizar()
     float salario = 0.0;
     cout << "Dados do funcionario" << endl;
     cout << "Id: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     cin >> id;
     funcionario = cFuncionarios.pesquisar(id, cpf);
@@ -167,23 +167,23 @@ void VFuncionario::atualizar()
         return;
     }
     cout << "Nome: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     getline(cin, nome);
     cout << "Cpf: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     getline(cin, cpf);
     cout << "Telefone: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     getline(cin, telefone);
     cout << "Cargo: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     getline(cin, cargo);
     cout << "Salario: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     cin >> salario;
     cFuncionarios.atualizar(funcionario, nome, cpf, telefone, endereco, cargo, salario);
@@ -195,11 +195,11 @@ void VFuncionario::desligar()
     int id;
     string nome;
     cout << "Nome: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     getline(cin, nome);
     cout << "Id: ";
-    __fpurge(stdin);
+    //__fpurge(stdin);
     fflush(stdin);
     cin >> id;
     if (cFuncionarios.remover(nome, id))

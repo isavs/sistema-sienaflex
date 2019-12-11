@@ -96,15 +96,7 @@ const string UEndereco::getPais()
 {
     return pais;
 }
-<<<<<<< HEAD
 const string UEndereco::getComplemento()
 {
     return complemento;
 }
-=======
-
-const string UEndereco::getComplemento()
-{
-    return complemento;
-}
->>>>>>> 9fad704ff0564f2fad55a29f8dfb7921e92e8f68
