@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "../Util/UData.h"
 using namespace std;
 
 class MMercadoria {
@@ -14,6 +15,8 @@ protected:
     float custo;
     float preco;
     bool vendida;
+    UData entrada;
+    UData saida;
 
 public:
     MMercadoria();
@@ -41,4 +44,8 @@ public:
     const float getPreco();
     const bool getStatus();
     const MMercadoria* getDados();
+    void setDataEntrada(int d, int m, int a);
+    void setDataSaida(int d, int m, int a);
+    UData getDataEntrada();
+    UData getDataSaida();
 };

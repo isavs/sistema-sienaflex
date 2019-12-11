@@ -44,7 +44,7 @@ void Menu::menu()
             default:
             {
                 cout << "\n\t!OPÇÃO INVÁLIDA\n" << endl;
-                __fpurge(stdin);
+                //__fpurge(stdin);
                 fflush(stdin);
                 getchar();
             }

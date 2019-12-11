@@ -17,7 +17,7 @@ string FuncionarioDAOcsv::ler(const char* nome){
         return strArquivo;
     }
 
-    return nullptr;
+    return "";
 }
 
 bool FuncionarioDAOcsv::abrir(const char* nome, std::ios_base::openmode modo){

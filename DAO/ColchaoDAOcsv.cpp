@@ -17,7 +17,7 @@ string ColchaoDAOcsv::ler(const char* nome){
         return strArquivo;
     }
 
-    return nullptr;
+    return "";
 }
 
 bool ColchaoDAOcsv::abrir(const char* nome, std::ios_base::openmode modo){
@@ -33,6 +33,12 @@ bool ColchaoDAOcsv::abrir(const char* nome, std::ios_base::openmode modo){
 
 MColchao*  ColchaoDAOcsv::getColchao(string linha) {
     
+    int de = stoi(copiar(&linha, ';'));
+    int me = stoi(copiar(&linha, ';'));
+    int ae = stoi(copiar(&linha, ';'));
+    int ds = stoi(copiar(&linha, ';'));
+    int ms = stoi(copiar(&linha, ';'));
+    int as = stoi(copiar(&linha, ';'));
     int id = stoi(copiar(&linha, ';'));
     string nomeColchao = copiar(&linha, ';');
     string fabricante = copiar(&linha, ';');
@@ -45,9 +51,10 @@ MColchao*  ColchaoDAOcsv::getColchao(string linha) {
     bool vendida = (copiar(&linha, ';').front() == '1')? 1 : 0;
     string tamanho =  copiar(&linha, ';');
 
-    MColchao* Colchao = new MColchao(id, nomeColchao, fabricante, cor, largura, altura, profundidade, custo, preco, tamanho);
-
-    return Colchao;
+    MColchao* colchao = new MColchao(id, nomeColchao, fabricante, cor, largura, altura, profundidade, custo, preco, tamanho);
+    colchao->setDataEntrada(de,me,ae);
+    colchao->setDataEntrada(ds,ms,as);
+    return colchao;
  }
 
 string  ColchaoDAOcsv::copiar(string *s, char parada)  {
@@ -74,7 +81,13 @@ bool  ColchaoDAOcsv::gravar(const char* nome, string s) {
 
 bool ColchaoDAOcsv::gravar(const char* nome, MColchao* colchao) {
 
-    string s = to_string(colchao->getId()) + ";" 
+    string s = to_string(colchao->getDataEntrada().getDia()) + ";" 
+    + to_string(colchao->getDataEntrada().getMes())  + ";" 
+    + to_string(colchao->getDataEntrada().getAno())  + ";" 
+    + to_string(colchao->getDataSaida().getDia())  + ";" 
+    + to_string(colchao->getDataSaida().getMes())  + ";" 
+    + to_string(colchao->getDataSaida().getAno())  + ";" 
+    + to_string(colchao->getId()) + ";" 
     + colchao->getNome() + ";" 
     + colchao->getFabricante() + ";" 
     + colchao->getCor() + ";" 

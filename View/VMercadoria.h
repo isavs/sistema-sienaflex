@@ -1,6 +1,6 @@
 #pragma once
 #include "../Controller/CMercadoria.h"
-#include <stdio_ext.h>
+//#include <stdio_ext.h>
 #include <iostream>
 using namespace std;
 

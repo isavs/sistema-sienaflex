@@ -17,7 +17,7 @@ string EstofadoDAOcsv::ler(const char* nome){
         return strArquivo;
     }
 
-    return nullptr;
+    return "";
 }
 
 bool EstofadoDAOcsv::abrir(const char* nome, std::ios_base::openmode modo){
@@ -33,6 +33,12 @@ bool EstofadoDAOcsv::abrir(const char* nome, std::ios_base::openmode modo){
 
 MEstofado*  EstofadoDAOcsv::getEstofado(string linha) {
     
+    int de = stoi(copiar(&linha, ';'));
+    int me = stoi(copiar(&linha, ';'));
+    int ae = stoi(copiar(&linha, ';'));
+    int ds = stoi(copiar(&linha, ';'));
+    int ms = stoi(copiar(&linha, ';'));
+    int as = stoi(copiar(&linha, ';'));
     int id = stoi(copiar(&linha, ';'));
     const char* nomeEstofado = (copiar(&linha, ';')).c_str();
     const char* fabricante = (copiar(&linha, ';')).c_str();
@@ -45,9 +51,10 @@ MEstofado*  EstofadoDAOcsv::getEstofado(string linha) {
     bool vendida = (copiar(&linha, ';').front() == '1')? 1 : 0;
     int lugares =  stoi(copiar(&linha, ';'));
 
-    MEstofado* Estofado = new MEstofado(id, nomeEstofado, fabricante, cor, largura, altura, profundidade, custo, preco, lugares);
-
-    return Estofado;
+    MEstofado* estofado = new MEstofado(id, nomeEstofado, fabricante, cor, largura, altura, profundidade, custo, preco, lugares);
+    estofado->setDataEntrada(de,me,ae);
+    estofado->setDataEntrada(ds,ms,as);
+    return estofado;
  }
 
 string  EstofadoDAOcsv::copiar(string *s, char parada)  {
@@ -72,19 +79,25 @@ bool  EstofadoDAOcsv::gravar(const char* nome, string s) {
 }
 /*Métodos publicos*/
 
-bool EstofadoDAOcsv::gravar(const char* nome, MEstofado* Estofado) {
+bool EstofadoDAOcsv::gravar(const char* nome, MEstofado* estofado) {
 
-    string s = to_string(Estofado->getId()) + ";" 
-    + Estofado->getNome() + ";" 
-    + Estofado->getFabricante() + ";" 
-    + Estofado->getCor() + ";" 
-    + to_string(Estofado->getLargura()) + ";" 
-    + to_string(Estofado->getAltura()) + ";" 
-    + to_string(Estofado->getProfundidade()) + ";" 
-    + to_string(Estofado->getCusto()) + ";" 
-    + to_string(Estofado->getPreco()) + ";" 
-    + to_string(Estofado->getStatus()) + ";"
-    + to_string(Estofado->getLugares()) + ";\n";
+    string s = to_string(estofado->getDataEntrada().getDia()) + ";" 
+    + to_string(estofado->getDataEntrada().getMes())  + ";" 
+    + to_string(estofado->getDataEntrada().getAno())  + ";" 
+    + to_string(estofado->getDataSaida().getDia())  + ";" 
+    + to_string(estofado->getDataSaida().getMes())  + ";" 
+    + to_string(estofado->getDataSaida().getAno())  + ";"
+    + to_string(estofado->getId()) + ";" 
+    + estofado->getNome() + ";" 
+    + estofado->getFabricante() + ";" 
+    + estofado->getCor() + ";" 
+    + to_string(estofado->getLargura()) + ";" 
+    + to_string(estofado->getAltura()) + ";" 
+    + to_string(estofado->getProfundidade()) + ";" 
+    + to_string(estofado->getCusto()) + ";" 
+    + to_string(estofado->getPreco()) + ";" 
+    + to_string(estofado->getStatus()) + ";"
+    + to_string(estofado->getLugares()) + ";\n";
 
     return gravar(nome, s);
 }

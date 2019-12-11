@@ -12,7 +12,9 @@ private:
     fstream arquivo;
       
     struct sColchao { 
-        int id;
+        int id,
+            ds, ms, as,
+            de, me, ae;
         char nome[30],
             fabricante[30],
             cor[30],
