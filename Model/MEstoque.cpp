@@ -45,7 +45,7 @@ void MEstoque::salvarEstoque()
         string BDbascsv = "BDBases_" + dataBin;
         string BDbasbin = "BDBases_" + dataCSV;
         remove("BDBases.dat");
-        remove("BDCBases.csv");
+        remove("BDBases.csv");
         cbin.gravar("BDBases.dat", (*i));
         ccsv.gravar("BDBases.csv", (*i));
         cbin.gravar(&BDbasbin[0], (*i));
@@ -55,7 +55,7 @@ void MEstoque::salvarEstoque()
         string BDsofcsv = "BDSofas_" + dataBin;
         string BDsofbin = "BDSofas_" + dataCSV;
         remove("BDSofas.dat");
-        remove("BDCSofas.csv");
+        remove("BDSofas.csv");
         ebin.gravar("BDSofas.dat", (*i));
         ecsv.gravar("BDSofas.csv", (*i));
         ebin.gravar(&BDsofbin[0], (*i));
@@ -75,7 +75,7 @@ void MEstoque::salvarEstoque()
         string BDpolcsv = "BDPoltronas_" + dataBin;
         string BDpolbin = "BDPoltronas_" + dataCSV;
         remove("BDPoltronas.dat");
-        remove("BDCPoltronas.csv");
+        remove("BDPoltronas.csv");
         ebin.gravar("BDPoltronas.dat", (*i));
         ecsv.gravar("BDPoltronas.csv", (*i));
         ebin.gravar(&BDpolbin[0], (*i));
