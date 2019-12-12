@@ -3,7 +3,7 @@
 
 class MFuncionario: public MPessoa
 {
-protected:
+private:
     int id;
     string cargo;
     double salario;

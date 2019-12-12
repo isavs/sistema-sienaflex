@@ -137,7 +137,7 @@ bool MEstoque::removerColchao(MColchao* colchao)
     struct tm tm = *localtime(&myTime);
     if (colchao != NULL){
         colchao->setDataSaida(tm.tm_mday, tm.tm_mon+1, tm.tm_yday+1900);
-        ccsv.gravar("BDColchaoVendidas.csv", colchao);
+        ccsv.gravar("BDColchaoVendidos.csv", colchao);
         listaColchoes.remove(colchao);
         return true;
     }
@@ -151,7 +151,7 @@ bool MEstoque::removerBase(MColchao* base)
     struct tm tm = *localtime(&myTime);
     if (base != NULL){
         base->setDataSaida(tm.tm_mday, tm.tm_mon+1, tm.tm_yday+1900);
-        ccsv.gravar("BDColchaoVendidas.csv", base);
+        ccsv.gravar("BDColchaoVendidos.csv", base);
         listaBases.remove(base);
         return true;
     }
@@ -165,7 +165,7 @@ bool MEstoque::removerSofa(MEstofado* sofa)
     struct tm tm = *localtime(&myTime);
     if (sofa != NULL){
         sofa->setDataSaida(tm.tm_mday, tm.tm_mon+1, tm.tm_yday+1900);
-        ecsv.gravar("BDEstofadoVendidas.csv", sofa);
+        ecsv.gravar("BDEstofadoVendidos.csv", sofa);
         listaSofas.remove(sofa);
         return true;
     }
@@ -179,7 +179,7 @@ bool MEstoque::removerPoltrona(MEstofado* poltrona)
     struct tm tm = *localtime(&myTime);
     if (poltrona != NULL){
         poltrona->setDataSaida(tm.tm_mday, tm.tm_mon+1, tm.tm_yday+1900);
-        ecsv.gravar("BDEstofadoVendidas.csv", poltrona);
+        ecsv.gravar("BDEstofadoVendidos.csv", poltrona);
         listaSofas.remove(poltrona);
         return true;
     }
@@ -193,7 +193,7 @@ bool MEstoque::removerPuff(MEstofado* puff)
     struct tm tm = *localtime(&myTime);
     if (puff != NULL){
         puff->setDataSaida(tm.tm_mday, tm.tm_mon+1, tm.tm_yday+1900);
-        ecsv.gravar("BDEstofadoVendidas.csv", puff);
+        ecsv.gravar("BDEstofadoVendidos.csv", puff);
         listaPuffs.remove(puff);
         return true;
     }

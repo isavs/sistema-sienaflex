@@ -14,13 +14,6 @@ using namespace std;
 class URelatorio
 {
 private:
-    double entrada;
-    double saida;
-    double pagamentos;
-    string fluxoDePagamentos;
-    string fluxoDeCaixa;
-    UData entrada;
-    UData saida;
     ColchaoDAOcsv colchoes;
     EstofadoDAOcsv estofados;
     FuncionarioDAOcsv funcionarios;
@@ -31,5 +24,5 @@ public:
     ~URelatorio();
     string gerarFluxoDeCaixaMensal(int mes, int ano);
     bool gerarFluxoDeCaixa(int ano);
-    void gerarFluxoDePagamentos();
+    bool gerarFluxoDePagamentos();
 };
