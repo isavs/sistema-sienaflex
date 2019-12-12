@@ -69,12 +69,16 @@ void Menu::gerarRelatorios()
                 cout << "Ano: ";
                 cin >> ano;
                 cout << endl;
-                relatorio.gerarFluxoDeCaixa(ano);
+                if (!relatorio.gerarFluxoDeCaixa(ano))
+                    cout << "!!! Relatorio nao gerado !!!"<< endl;
+                cout << "Fluxo de caixa gerado com sucesso." << endl;
                 break;
             }
             case 2:
             {
-                relatorio.gerarFluxoDePagamentos();
+                if (!relatorio.gerarFluxoDePagamentos())
+                    cout << "!!! Relatorio nao gerado !!!"<< endl;
+                cout << "Relatorio de pagamentos gerado com sucesso." << endl;
                 break;
             }
             default:
