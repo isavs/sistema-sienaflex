@@ -3,6 +3,7 @@
 using namespace std;
 #include "./View/VMercadoria.h"
 #include "./View/VFuncionario.h"
+#include "./Util/URelatorio.h"
 
 class Menu
 {
@@ -14,4 +15,5 @@ public:
     Menu();
     ~Menu();
     void menu();
+    void gerarRelatorios();
 };
