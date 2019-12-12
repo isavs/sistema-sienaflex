@@ -57,8 +57,8 @@ void Menu::gerarRelatorios()
 {
     URelatorio relatorio;
     int caso = -1;
-    while (caso != 4){
-        cout << "\nGerar fluxo de caixa\t|\t2 - Gerar relatorio de pagamentos\n3 - Sair\n>> ";
+    while (caso != 3){
+        cout << "\n1- Gerar fluxo de caixa\t|\t2 - Gerar relatorio de pagamentos\n3 - Sair\n>> ";
         cin >> caso;
         cout << endl;
         switch(caso)
@@ -81,6 +81,10 @@ void Menu::gerarRelatorios()
                     cout << "!!! Relatorio nao gerado !!!"<< endl;
                 else
                     cout << "Fluxo de pagamentos gerado com sucesso." << endl;
+                break;
+            }
+            case 3:
+            {
                 break;
             }
             default:
