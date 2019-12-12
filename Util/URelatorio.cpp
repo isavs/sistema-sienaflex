@@ -9,77 +9,74 @@ URelatorio::~URelatorio()
 {
 
 }
-
-void URelatorio::gerarFluxoDeCaixa()
+string URelatorio::gerarFluxoDeCaixaMensal(int mes, int ano)
 {
-    UData data, saida;
-    string s;
+    double compras = 0;
+    double vendas = 0; 
+    string s = to_string(mes) + '/' + to_string (ano) + ';';
 
-    auto itC = colchoes.getListaColchoes("BDColchoes.csv").begin();
-    auto itE = estofados.getListaEstofados("BDEstofados.csv").begin();
-    auto itF = funcionarios.getListaFuncionarios("BDFuncionarios.csv").begin();
-
-    while ((entrada.getDia() <= (*itC)->getDataEntrada().getDia()
-        && entrada.getMes() <= (*itC)->getDataEntrada().getMes()
-        && entrada.getAno() <= (*itC)->getDataEntrada().getAno()) ||
-        (entrada.getDia() <= (*itE)->getDataEntrada().getDia()
-        && entrada.getMes() <= (*itE)->getDataEntrada().getMes()
-        && entrada.getAno() <= (*itE)->getDataEntrada().getAno()) ||
-        (entrada.getDia() <= (*itF)->getDataEntrada().getDia()
-        && entrada.getMes() <= (*itF)->getDataEntrada().getMes()
-        && entrada.getAno() <= (*itF)->getDataEntrada().getAno())){
-        while (itC = colchoes.getListaColchoes("BDColchoes.csv").end())
-    }
-    while (it != colchoes.getListaColchoes("BDColchoes.csv").end()){
-        data((*it)->getDataEntrada().getDia(), (*it)->getDataEntrada().getMes(), (*it)->getDataEntrada().getAno());
-        do {
+    for (auto it = colchoes.getListaColchoes("BDColchoes.csv").begin(); it != colchoes.getListaColchoes("BDColchoes.csv").end(); it++){
+        if(mes == (*it)->getDataEntrada().getMes()
+        && ano == (*it)->getDataEntrada().getAno()){
             compras += (*it)->getCusto();
-            if ((*it)->getDataSaida().getDia() == data.getDia() &&
-                (*it)->getDataSaida().getMes() == data.getMes() &&
-                (*it)->getDataSaida().getAno() == data.getAno()){
-                vendas += (*it)->getPreco();
-            }
-            it++;
-        } while ((*it)->getDataEntrada().getDia() == data.getDia())
+        }
+        if(mes == (*it)->getDataSaida().getMes()
+        && ano == (*it)->getDataSaida().getAno()){
+            vendas += (*it)->getPreco();
+        }
     }
-
-    for (  it++){
-        data = (*it)
-        if ()
-
-        for (){
-
+    for (auto it = estofados.getListaEstofados("BDEstofados.csv").begin(); it != estofados.getListaEstofados("BDEstofados.csv").end(); it++){
+        if(mes == (*it)->getDataEntrada().getMes()
+        && ano == (*it)->getDataEntrada().getAno()){
+            compras += (*it)->getCusto();
+        }
+        if(mes == (*it)->getDataSaida().getMes()
+        && ano == (*it)->getDataSaida().getAno()){
+            vendas += (*it)->getPreco();
         }
     }
 
-    s = s + to_string(mercadoria->getDataEntrada().getDia()) + '/'
-        + to_string(mercadoria->getDataEntrada().getMes()) + '/'
-        + to_string(mercadoria->getDataEntrada().getAno()) + '/' + ";"
-        + to_string(mercadoria->getDataSaida().getDia()) + '/'
-        + to_string(mercadoria->getDataSaida().getMes()) + '/'
-        + to_string(mercadoria->getDataSaida().getAno()) + '/' + ";"
-    string
+    s = s + to_string(compras) + ';' + to_string(vendas) +';' + to_string(vendas-compras) + ";\n";
+    return s;
+}
+bool URelatorio::gerarFluxoDeCaixa(int ano)
+{
+    string nome = "FluxoDeCaixa" + to_string(ano) + ".csv";
+    remove(&nome[0]);
+    arquivo.open(&nome[0], ios::app);
 
+    if (!arquivo.is_open() || !arquivo.good()) {
+        return false;
+    }
+    string s = "Data" + ';' + "Despesas" +';'+ "Vendas" +';'+ "Fluxo" + ";\n";
 
+    for (int i = 1; i < 13; i++) {
+        s = s + gerarFluxoDeCaixaMensal(i, ano);
+    }
 
-    string s = to_string(colchoa->getId()) + ";"
-    + colchao->getNome() + ";"
-    + colchao->getFabricante() + ";"
-    + colchao->getCor() + ";"
-    + to_string(colchao->getLargura()) + ";"
-    + to_string(colchao->getAltura()) + ";"
-    + to_string(colchao->getProfundidade()) + ";"
-    + to_string(colchao->getCusto()) + ";"
-    + to_string(colchao->getPreco()) + ";"
-    + to_string(colchao->getStatus()) + ";"
-    + colchao->getTamanho()+ ";\n";
-
-    return gravar(nome, s);
-
-
+    arquivo << s;
+    arquivo.close();
+    return true;
 }
 
 void URelatorio::gerarFluxoDePagamentos()
 {
+    remove("FluxoDePagamentos.csv");
+    arquivo.open("FluxoDePagamentos.csv", ios::app);
+    string s = "";
+    double pagamentos = 0;
 
+    s += "Funcionario" +';' + "CPF" +';' + "Salario" +';' + "Total" + ";\n";
+
+    for (auto it = funcionarios.getListaFuncionarios("BDFuncionarios.csv").begin(); it != funcionarios.getListaFuncionarios("BDFuncionarios.csv").end(); it++){
+        s += (*it)->getNome() + ";"
+        + (*it)->getCpf() + ";"
+        + to_string((*it)->getSalario()) + ";\n";
+        pagamentos += pagamentos;
+    }
+
+    s += ";" + ";" + ";" + to_string(pagamentos) + ";\n";
+
+    arquivo << s;
+    arquivo.close();
 }

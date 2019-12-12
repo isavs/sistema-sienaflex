@@ -2,7 +2,7 @@
 
 class UData
 {
-public:
+private:
     int dia;
     int mes;
     int ano;

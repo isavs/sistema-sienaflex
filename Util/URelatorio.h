@@ -8,6 +8,7 @@
 #include "UData.h"
 #include <iostream>
 #include <list>
+#include <fstream>
 using namespace std;
 
 class URelatorio
@@ -15,8 +16,6 @@ class URelatorio
 private:
     double entrada;
     double saida;
-    double compras;
-    double vendas;
     double pagamentos;
     string fluxoDePagamentos;
     string fluxoDeCaixa;
@@ -25,10 +24,12 @@ private:
     ColchaoDAOcsv colchoes;
     EstofadoDAOcsv estofados;
     FuncionarioDAOcsv funcionarios;
+    fstream arquivo;
 
 public:
     URelatorio();
     ~URelatorio();
-    void gerarFluxoDeCaixa();
+    string gerarFluxoDeCaixaMensal(int mes, int ano);
+    bool gerarFluxoDeCaixa(int ano);
     void gerarFluxoDePagamentos();
 };
