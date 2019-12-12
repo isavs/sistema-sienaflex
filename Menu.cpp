@@ -33,6 +33,7 @@ void Menu::menu()
             }
             case 3:
             {
+                gerarRelatorios();
                 break;
             }
             case 4:
@@ -47,6 +48,42 @@ void Menu::menu()
                 //__fpurge(stdin);
                 fflush(stdin);
                 getchar();
+            }
+        }
+    }
+}
+
+void Menu::gerarRelatorios()
+{
+    URelatorio relatorio;
+    int caso = -1;
+    while (caso != 4){
+        cout << "\nGerar fluxo de caixa\t|\t2 - Gerar relatorio de pagamentos\n3 - Sair\n>> ";
+        cin >> caso;
+        cout << endl;
+        switch(caso)
+        {
+            case 1:
+            {
+                int ano;
+                cout << "Ano: ";
+                cin >> ano;
+                cout << endl;
+                if (!relatorio.gerarFluxoDeCaixa(ano))
+                    cout << "!!! Relatorio nao gerado !!!"<< endl;
+                cout << "Fluxo de caixa gerado com sucesso." << endl;
+                break;
+            }
+            case 2:
+            {
+                if (!relatorio.gerarFluxoDePagamentos())
+                    cout << "!!! Relatorio nao gerado !!!"<< endl;
+                cout << "Relatorio de pagamentos gerado com sucesso." << endl;
+                break;
+            }
+            default:
+            {
+                break;
             }
         }
     }
